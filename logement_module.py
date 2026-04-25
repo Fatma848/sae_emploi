@@ -1,21 +1,19 @@
 """
-Module Logement — Comparaison Paris vs Marseille
+Module Logement — Comparateur de villes françaises
 SAE Outils Décisionnels
 
 Sources :
-- Paris    : Logements_Paris.xlsx    (Open Data / INSEE)
-- Marseille: Logements_Marseille.xlsx (Open Data / INSEE)
+- pred-app-mef-dhup.csv  : Loyers de référence appartements (DHUP/Ministère du Logement)
+- pred-mai-mef-dhup.csv  : Loyers de référence maisons (DHUP/Ministère du Logement)
 
-Colonnes attendues :
-  - "Nombre de logements"  : int ou float
-  - "Année d'autorisation" : int
-  - "GeoPoint"             : "lat,lon"  (optionnel, pour la carte)
+Variables clés :
+- loyer_m2      : loyer prédit au m²
+- loyer_m2_min  : borne basse de l'intervalle de confiance
+- loyer_m2_max  : borne haute de l'intervalle de confiance
+- type_bien     : Appartement ou Maison
 
 Usage : from logement_module import show_logement
-        show_logement()
-
-Dépendances :
-    pip install streamlit pandas plotly openpyxl
+        show_logement(ville1, ville2, v1_info, v2_info)
 """
 
 import streamlit as st
@@ -24,491 +22,445 @@ import plotly.graph_objects as go
 import plotly.express as px
 import os
 
-# ─────────────────────────────────────────────
-# CHEMINS
-# ─────────────────────────────────────────────
-BASE_DIR       = os.path.dirname(__file__)
-PATH_LOG_PARIS = os.path.join(BASE_DIR, "data", "Logements_Paris.xlsx")
-PATH_LOG_MARS  = os.path.join(BASE_DIR, "data", "Logements_Marseille.xlsx")
+COLOR_V1 = "#1f77b4"
+COLOR_V2 = "#d62728"
 
-# ─────────────────────────────────────────────
-# COULEURS
-# ─────────────────────────────────────────────
-COLOR_PARIS     = "#1f77b4"
-COLOR_MARSEILLE = "#d62728"
-
-
-# ─────────────────────────────────────────────
-# CHARGEMENT & NETTOYAGE
-# ─────────────────────────────────────────────
-@st.cache_data
-def load_logements():
-    df_paris = pd.read_excel(PATH_LOG_PARIS)
-    df_mars  = pd.read_excel(PATH_LOG_MARS)
-
-    df_paris["ville"] = "Paris"
-    df_mars["ville"]  = "Marseille"
-    df = pd.concat([df_paris, df_mars], ignore_index=True)
-
-    df = df.rename(columns={
-        "Nombre de logements":  "nb_logements",
-        "Annee d autorisation": "annee",
-    })
-    # Fallback si le nom de colonne est different
-    if "annee" not in df.columns:
-        for c in df.columns:
-            if "ann" in c.lower() and "auto" in c.lower():
-                df = df.rename(columns={c: "annee"})
-                break
-
-    df["annee"] = pd.to_numeric(df["annee"], errors="coerce")
-    df["nb_logements"] = pd.to_numeric(
-        df["nb_logements"].astype(str).str.replace(",", "."), errors="coerce"
-    )
-    df = df.dropna(subset=["annee", "nb_logements"])
-    df["annee"] = df["annee"].astype(int)
-
-    return df, df_paris, df_mars
-
-
-@st.cache_data
-def build_grouped(df):
-    return df.groupby(["annee", "ville"])["nb_logements"].sum().reset_index()
+CLEAN_DIR = os.path.join(os.path.dirname(__file__), "data", "clean")
 
 
 def fmt(n):
-    return f"{int(n):,}".replace(",", "\u202f")
-
-
-def latest_common_year(df_grouped):
-    y_p = set(df_grouped[df_grouped["ville"] == "Paris"]["annee"])
-    y_m = set(df_grouped[df_grouped["ville"] == "Marseille"]["annee"])
-    common = sorted(y_p & y_m)
-    return int(common[-1]) if common else None
-
-
-def get_val(df_grouped, ville, annee):
-    rows = df_grouped[
-        (df_grouped["ville"] == ville) & (df_grouped["annee"] == annee)
-    ]["nb_logements"]
-    return int(rows.values[0]) if len(rows) > 0 else 0
+    try:
+        return f"{float(n):,.2f}".replace(",", " ").replace(".", ",")
+    except Exception:
+        return str(n)
 
 
 # ─────────────────────────────────────────────
-# ONGLET 1 — VUE GLOBALE
+# CHARGEMENT
 # ─────────────────────────────────────────────
-def tab_vue_globale(df_grouped, latest_year):
-    st.subheader(f"Résumé du parc de logements — {latest_year}")
+@st.cache_data
+def load_logement():
+    path = os.path.join(CLEAN_DIR, "logement.csv")
+    if not os.path.exists(path):
+        return None
+    return pd.read_csv(path, encoding="utf-8-sig")
 
-    paris_val = get_val(df_grouped, "Paris",     latest_year)
-    mars_val  = get_val(df_grouped, "Marseille", latest_year)
-    ratio     = paris_val / mars_val if mars_val > 0 else 0
-    ecart     = paris_val - mars_val
 
-    # ── KPIs ─────────────────────────────────
-    col1, col2, col3 = st.columns(3)
-    col1.metric("🗼 Logements Paris",     fmt(paris_val))
-    col2.metric(
-        "⚓ Logements Marseille", fmt(mars_val),
-        delta=f"{fmt(mars_val - paris_val)} vs Paris",
+def get_ville_logement(df, nom_ville):
+    return df[df["nom_commune"].str.lower() == nom_ville.lower()].copy()
+
+
+def get_stats(df_ville):
+    """Retourne les stats loyers pour une ville (app + maison)."""
+    stats = {}
+    for typ in ["Appartement", "Maison"]:
+        sub = df_ville[df_ville["type_bien"] == typ]
+        if not sub.empty:
+            # Prendre la ligne avec le plus d'observations (plus fiable)
+            row = sub.sort_values("nb_obs_commune", ascending=False).iloc[0]
+            stats[typ] = {
+                "loyer_m2":     row["loyer_m2"],
+                "loyer_m2_min": row["loyer_m2_min"],
+                "loyer_m2_max": row["loyer_m2_max"],
+                "niveau":       row.get("niveau_prediction", "N/D"),
+                "nb_obs":       row.get("nb_obs_commune", 0),
+                "r2":           row.get("r2_adj", None),
+            }
+    return stats
+
+
+# ─────────────────────────────────────────────
+# ONGLET 1 — CHIFFRES CLÉS
+# ─────────────────────────────────────────────
+def tab_kpis(ville1, ville2, s1, s2):
+    st.subheader("Loyers de référence au m²")
+    st.caption(
+        "Source : DHUP — Ministère du Logement · "
+        "Loyer prédit au m² avec intervalle de confiance à 95%"
     )
-    col3.metric("📊 Ratio Paris / Marseille", f"{ratio:.1f}×")
+
+    for typ in ["Appartement", "Maison"]:
+        emoji = "🏢" if typ == "Appartement" else "🏠"
+        st.markdown(f"#### {emoji} {typ}")
+
+        d1 = s1.get(typ)
+        d2 = s2.get(typ)
+
+        col_lbl, col_v1, col_v2 = st.columns([1.5, 2, 2])
+        col_lbl.markdown("**Indicateur**")
+        col_v1.markdown(f"**🔵 {ville1}**")
+        col_v2.markdown(f"**🔴 {ville2}**")
+
+        # Loyer m²
+        c1, c2, c3 = st.columns([1.5, 2, 2])
+        c1.markdown("**💶 Loyer moyen/m²**")
+        if d1:
+            c2.metric("", f"{d1['loyer_m2']:.2f} €/m²")
+        else:
+            c2.info("N/D")
+        if d2:
+            delta = None
+            if d1:
+                diff = d2["loyer_m2"] - d1["loyer_m2"]
+                delta = f"{diff:+.2f} €/m²"
+            c3.metric("", f"{d2['loyer_m2']:.2f} €/m²", delta=delta,
+                      delta_color="inverse")
+        else:
+            c3.info("N/D")
+
+        # Intervalle de confiance
+        c1, c2, c3 = st.columns([1.5, 2, 2])
+        c1.markdown("**📊 Intervalle (95%)**")
+        if d1:
+            c2.metric("", f"{d1['loyer_m2_min']:.2f} – {d1['loyer_m2_max']:.2f} €/m²")
+        else:
+            c2.info("N/D")
+        if d2:
+            c3.metric("", f"{d2['loyer_m2_min']:.2f} – {d2['loyer_m2_max']:.2f} €/m²")
+        else:
+            c3.info("N/D")
+
+        # Fiabilité
+        c1, c2, c3 = st.columns([1.5, 2, 2])
+        c1.markdown("**🎯 Nb observations**")
+        if d1:
+            c2.metric("", f"{int(d1['nb_obs'])} obs.")
+        else:
+            c2.info("N/D")
+        if d2:
+            c3.metric("", f"{int(d2['nb_obs'])} obs.")
+        else:
+            c3.info("N/D")
+
+        if d1 and d2:
+            diff = d2["loyer_m2"] - d1["loyer_m2"]
+            plus_cher = ville2 if diff > 0 else ville1
+            st.markdown(
+                f"> 👉 Pour les **{typ.lower()}s**, **{plus_cher}** est plus chère "
+                f"de **{abs(diff):.2f} €/m²** "
+                f"({max(d1['loyer_m2'], d2['loyer_m2']):.2f} €/m² vs "
+                f"{min(d1['loyer_m2'], d2['loyer_m2']):.2f} €/m²)."
+            )
+        st.divider()
+
+    # Jauges loyers appartements
+    a1 = s1.get("Appartement")
+    a2 = s2.get("Appartement")
+    if a1 and a2:
+        st.markdown("#### 📊 Loyer appartement — vue comparative")
+        max_val = max(a1["loyer_m2_max"], a2["loyer_m2_max"]) * 1.1
+        fig_g = go.Figure()
+        for i, (nom, d, color) in enumerate([
+            (ville1, a1, COLOR_V1),
+            (ville2, a2, COLOR_V2),
+        ]):
+            fig_g.add_trace(go.Indicator(
+                mode="gauge+number",
+                value=round(d["loyer_m2"], 2),
+                title={"text": f"{nom}<br>Appartement", "font": {"size": 12}},
+                number={"suffix": " €/m²", "valueformat": ".2f"},
+                gauge={
+                    "axis": {"range": [0, max_val]},
+                    "bar":  {"color": color},
+                    "steps": [
+                        {"range": [0,            max_val * 0.33], "color": "#d4edda"},
+                        {"range": [max_val * 0.33, max_val * 0.66], "color": "#fff3cd"},
+                        {"range": [max_val * 0.66, max_val],        "color": "#f8d7da"},
+                    ],
+                },
+                domain={"column": i, "row": 0},
+            ))
+        fig_g.update_layout(
+            grid={"rows": 1, "columns": 2}, height=240, margin=dict(t=40, b=0)
+        )
+        st.plotly_chart(fig_g, use_container_width=True)
+
+
+# ─────────────────────────────────────────────
+# ONGLET 2 — COMPARAISON VISUELLE
+# ─────────────────────────────────────────────
+def tab_comparaison(ville1, ville2, s1, s2):
+    st.subheader("Comparaison visuelle des loyers")
+
+    rows = []
+    for typ in ["Appartement", "Maison"]:
+        d1 = s1.get(typ)
+        d2 = s2.get(typ)
+        if d1:
+            rows.append({"Ville": ville1, "Type": typ,
+                         "Loyer (€/m²)": d1["loyer_m2"],
+                         "Min": d1["loyer_m2_min"], "Max": d1["loyer_m2_max"]})
+        if d2:
+            rows.append({"Ville": ville2, "Type": typ,
+                         "Loyer (€/m²)": d2["loyer_m2"],
+                         "Min": d2["loyer_m2_min"], "Max": d2["loyer_m2_max"]})
+
+    if not rows:
+        st.info("Données insuffisantes pour la comparaison.")
+        return
+
+    df_plot = pd.DataFrame(rows)
+
+    # Bar chart groupé
+    st.markdown("#### 📊 Loyer au m² — Appartement vs Maison")
+    fig_bar = px.bar(
+        df_plot, x="Type", y="Loyer (€/m²)", color="Ville",
+        barmode="group",
+        color_discrete_map={ville1: COLOR_V1, ville2: COLOR_V2},
+        text="Loyer (€/m²)",
+        error_y=df_plot["Max"] - df_plot["Loyer (€/m²)"],
+        error_y_minus=df_plot["Loyer (€/m²)"] - df_plot["Min"],
+        title="Loyers de référence au m² avec intervalle de confiance",
+    )
+    fig_bar.update_traces(texttemplate="%{text:.2f} €", textposition="outside")
+    fig_bar.update_layout(
+        height=420, yaxis_title="€/m²",
+        legend_title="", margin=dict(t=40),
+    )
+    st.plotly_chart(fig_bar, use_container_width=True)
+
+    st.markdown("""
+> 👉 Les **barres d'erreur** représentent l'intervalle de confiance à 95% du modèle de prédiction.
+> Un intervalle étroit = estimation fiable. Un intervalle large = peu d'observations dans cette commune.
+    """)
 
     st.divider()
 
-    # ── Jauges ───────────────────────────────
-    st.markdown("#### Visualisation comparative")
-    max_val = max(paris_val, mars_val) * 1.25
-    fig_gauge = go.Figure()
-    for i, (nom, val, color) in enumerate([
-        ("Paris",     paris_val, COLOR_PARIS),
-        ("Marseille", mars_val,  COLOR_MARSEILLE),
-    ]):
-        fig_gauge.add_trace(go.Indicator(
-            mode="gauge+number",
-            value=val,
-            title={"text": nom, "font": {"size": 14}},
-            number={"valueformat": ",.0f"},
-            gauge={
-                "axis": {"range": [0, max_val]},
-                "bar":  {"color": color},
-                "steps": [
-                    {"range": [0,               max_val * 0.33], "color": "#d4edda"},
-                    {"range": [max_val * 0.33,  max_val * 0.66], "color": "#fff3cd"},
-                    {"range": [max_val * 0.66,  max_val],        "color": "#f8d7da"},
-                ],
-            },
-            domain={"column": i, "row": 0},
+    # Graphique en points avec intervalles
+    st.markdown("#### 🎯 Intervalles de confiance détaillés")
+    fig_dot = go.Figure()
+    colors = {ville1: COLOR_V1, ville2: COLOR_V2}
+
+    for _, row in df_plot.iterrows():
+        color = colors[row["Ville"]]
+        label = f"{row['Ville']} — {row['Type']}"
+        fig_dot.add_trace(go.Scatter(
+            x=[row["Loyer (€/m²)"]],
+            y=[label],
+            mode="markers",
+            marker=dict(color=color, size=14, symbol="diamond"),
+            error_x=dict(
+                type="data",
+                symmetric=False,
+                array=[row["Max"] - row["Loyer (€/m²)"]],
+                arrayminus=[row["Loyer (€/m²)"] - row["Min"]],
+                color=color,
+            ),
+            name=row["Ville"],
+            showlegend=False,
         ))
-    fig_gauge.update_layout(
-        grid={"rows": 1, "columns": 2}, height=240, margin=dict(t=30, b=0)
+    fig_dot.update_layout(
+        xaxis_title="Loyer au m² (€)",
+        height=280, margin=dict(t=10),
     )
-    st.plotly_chart(fig_gauge, use_container_width=True)
-
-    # ── Analyse automatique ───────────────────
-    st.divider()
-    st.markdown("#### 💡 Lecture des chiffres")
-    st.info(
-        f"En **{latest_year}**, Paris comptabilise **{fmt(paris_val)} logements autorisés**, "
-        f"soit **{ratio:.1f}× plus** que Marseille ({fmt(mars_val)}). "
-        f"Cet écart de **{fmt(ecart)}** logements reflète directement la différence de population "
-        f"et de densité urbaine entre les deux villes. "
-        f"Paris, avec sa forte pression foncière, génère mécaniquement davantage de demandes "
-        f"d'autorisation de construction, tandis que Marseille, plus étendue, "
-        f"dispose de réserves foncières plus importantes."
-    )
+    st.plotly_chart(fig_dot, use_container_width=True)
 
 
 # ─────────────────────────────────────────────
-# ONGLET 2 — ÉVOLUTION TEMPORELLE
+# ONGLET 3 — CLASSEMENT RÉGIONAL
 # ─────────────────────────────────────────────
-def tab_evolution(df_grouped):
-    st.subheader("📈 Évolution du nombre de logements autorisés")
-    st.caption("Données annuelles agrégées — source : Logements_Paris.xlsx & Logements_Marseille.xlsx")
+def tab_classement(df, ville1, ville2):
+    st.subheader("Classement des villes par loyer au m²")
+    st.caption("Toutes les villes +20 000 hab disponibles dans les données")
 
-    # ── Courbe principale ─────────────────────
-    df_plot = df_grouped.copy()
-    df_plot["label"] = df_plot.apply(
-        lambda r: f"{int(r['nb_logements'] / 1000)}k" if r["annee"] % 2 == 0 else "",
-        axis=1,
+    type_bien = st.radio(
+        "Type de bien :", ["Appartement", "Maison"],
+        horizontal=True, key="radio_classement"
     )
 
-    fig = px.line(
-        df_plot, x="annee", y="nb_logements", color="ville",
-        markers=True,
-        color_discrete_map={"Paris": COLOR_PARIS, "Marseille": COLOR_MARSEILLE},
-        labels={"annee": "Année", "nb_logements": "Nb logements autorisés", "ville": "Ville"},
-    )
-    fig.update_traces(
-        mode="lines+markers+text",
-        text=df_plot["label"],
-        textposition="top center",
-        line=dict(width=2.5),
-        marker=dict(size=7),
-    )
-    fig.update_traces(hovertemplate="<b>%{x}</b><br>%{y:,.0f} logements<extra></extra>")
-    fig.update_layout(height=430, hovermode="x unified", margin=dict(t=20))
-    st.plotly_chart(fig, use_container_width=True)
+    df_type = df[df["type_bien"] == type_bien].copy()
 
-    # ── Analyse tendance ─────────────────────
-    st.divider()
-    st.markdown("#### 📌 Lecture de la tendance")
-    col_p, col_m = st.columns(2)
-    for col, ville in [(col_p, "Paris"), (col_m, "Marseille")]:
-        sub = df_grouped[df_grouped["ville"] == ville].sort_values("annee")
-        if len(sub) >= 2:
-            debut = sub.iloc[0]
-            fin   = sub.iloc[-1]
-            delta = fin["nb_logements"] - debut["nb_logements"]
-            pic   = sub.loc[sub["nb_logements"].idxmax()]
-            creux = sub.loc[sub["nb_logements"].idxmin()]
-            signe = "📈" if delta > 0 else "📉"
-            with col:
-                emoji = "🗼" if ville == "Paris" else "⚓"
-                st.markdown(f"**{emoji} {ville}**")
-                st.markdown(
-                    f"- {signe} Évolution : {fmt(int(debut['nb_logements']))} ({int(debut['annee'])}) "
-                    f"→ **{fmt(int(fin['nb_logements']))}** ({int(fin['annee'])})\n"
-                    f"- 🔝 Pic : **{fmt(int(pic['nb_logements']))}** en **{int(pic['annee'])}**\n"
-                    f"- 🔻 Creux : **{fmt(int(creux['nb_logements']))}** en **{int(creux['annee'])}**"
-                )
-
-    st.divider()
-
-    # ── Variation annuelle ────────────────────
-    st.markdown("#### 📊 Variation annuelle (% par rapport à l'année précédente)")
-    records = []
-    for ville in ["Paris", "Marseille"]:
-        sub = df_grouped[df_grouped["ville"] == ville].sort_values("annee").copy()
-        sub["variation"] = sub["nb_logements"].pct_change() * 100
-        sub = sub.dropna(subset=["variation"])
-        records.append(sub)
-    df_var = pd.concat(records)
-
-    fig_var = px.bar(
-        df_var, x="annee", y="variation", color="ville", barmode="group",
-        color_discrete_map={"Paris": COLOR_PARIS, "Marseille": COLOR_MARSEILLE},
-        labels={"annee": "Année", "variation": "Variation (%)", "ville": "Ville"},
-    )
-    fig_var.add_hline(y=0, line_dash="dash", line_color="gray", line_width=1)
-    fig_var.update_layout(height=320, margin=dict(t=20))
-    st.plotly_chart(fig_var, use_container_width=True)
-    st.caption(
-        "👉 Les barres positives indiquent une hausse des autorisations par rapport à l'année "
-        "précédente. Les fortes variations peuvent refléter des politiques de construction "
-        "ou des effets conjoncturels (crise, relance…)."
-    )
-
-
-# ─────────────────────────────────────────────
-# ONGLET 3 — COMPARAISON ANNUELLE
-# ─────────────────────────────────────────────
-def tab_comparaison(df_grouped):
-    st.subheader("📊 Comparaison directe sur une année donnée")
-
-    annees_communes = sorted(
-        set(df_grouped[df_grouped["ville"] == "Paris"]["annee"]) &
-        set(df_grouped[df_grouped["ville"] == "Marseille"]["annee"])
-    )
-    if not annees_communes:
-        st.warning("Aucune année commune disponible.")
+    if df_type.empty:
+        st.info("Données non disponibles.")
         return
 
-    annee_sel = st.select_slider(
-        "📅 Choisir une année :", options=annees_communes, value=annees_communes[-1]
+    # Garder la meilleure observation par commune
+    df_best = (
+        df_type.sort_values("nb_obs_commune", ascending=False)
+        .drop_duplicates("nom_commune")
+        .sort_values("loyer_m2", ascending=False)
+        .reset_index(drop=True)
     )
+    df_best["rang"] = df_best.index + 1
 
-    paris_val = get_val(df_grouped, "Paris",     annee_sel)
-    mars_val  = get_val(df_grouped, "Marseille", annee_sel)
-    ratio     = paris_val / mars_val if mars_val > 0 else 0
+    # Trouver le rang des villes sélectionnées
+    rang1 = df_best[df_best["nom_commune"] == ville1]["rang"].values
+    rang2 = df_best[df_best["nom_commune"] == ville2]["rang"].values
 
-    # ── KPIs ─────────────────────────────────
     col1, col2, col3 = st.columns(3)
-    col1.metric("🗼 Paris",     fmt(paris_val))
-    col2.metric("⚓ Marseille", fmt(mars_val))
-    col3.metric("📊 Ratio",     f"{ratio:.1f}×")
+    col1.metric(f"🔵 Rang {ville1}", f"#{rang1[0]}" if len(rang1) else "N/D",
+                f"sur {len(df_best)} villes")
+    col2.metric(f"🔴 Rang {ville2}", f"#{rang2[0]}" if len(rang2) else "N/D",
+                f"sur {len(df_best)} villes")
+    col3.metric("🏆 Ville la + chère", df_best.iloc[0]["nom_commune"],
+                f"{df_best.iloc[0]['loyer_m2']:.2f} €/m²")
+
     st.divider()
 
-    # ── Graphiques ───────────────────────────
-    df_sel = df_grouped[df_grouped["annee"] == annee_sel]
-    col_bar, col_pie = st.columns(2)
+    # Top 20
+    st.markdown(f"#### 🏆 Top 20 villes les plus chères — {type_bien}s")
+    df_top20 = df_best.head(20).copy()
 
-    with col_bar:
-        st.markdown(f"**Logements autorisés en {annee_sel}**")
-        fig_bar = px.bar(
-            df_sel, x="ville", y="nb_logements", color="ville",
-            color_discrete_map={"Paris": COLOR_PARIS, "Marseille": COLOR_MARSEILLE},
-            text="nb_logements",
-        )
-        fig_bar.update_traces(texttemplate="%{text:,.0f}", textposition="outside")
-        fig_bar.update_layout(height=360, showlegend=False, yaxis_title="Nb logements")
-        st.plotly_chart(fig_bar, use_container_width=True)
-
-    with col_pie:
-        st.markdown(f"**Répartition en {annee_sel}**")
-        fig_pie = px.pie(
-            df_sel, values="nb_logements", names="ville",
-            color="ville",
-            color_discrete_map={"Paris": COLOR_PARIS, "Marseille": COLOR_MARSEILLE},
-            hole=0.4,
-        )
-        fig_pie.update_traces(textinfo="percent+label")
-        fig_pie.update_layout(height=360)
-        st.plotly_chart(fig_pie, use_container_width=True)
-
-    # ── Interprétation ────────────────────────
-    st.divider()
-    st.markdown("#### 💡 Interprétation")
-    pct_paris = paris_val / (paris_val + mars_val) * 100 if (paris_val + mars_val) > 0 else 0
-    st.info(
-        f"En **{annee_sel}**, Paris représente **{pct_paris:.0f}%** du total des logements autorisés "
-        f"dans les deux villes ({fmt(paris_val)} contre {fmt(mars_val)} à Marseille). "
-        f"Ce ratio de **{ratio:.1f}×** est cohérent avec la différence de population "
-        f"(Paris ≈ 2,1 M hab. vs Marseille ≈ 870 000 hab.)."
+    # Coloriser les villes sélectionnées
+    df_top20["couleur"] = df_top20["nom_commune"].apply(
+        lambda x: COLOR_V1 if x == ville1 else (COLOR_V2 if x == ville2 else "#95a5a6")
     )
+
+    fig_top = px.bar(
+        df_top20.sort_values("loyer_m2"),
+        x="loyer_m2", y="nom_commune",
+        orientation="h",
+        text="loyer_m2",
+        color="nom_commune",
+        color_discrete_map={
+            v: (COLOR_V1 if v == ville1 else COLOR_V2 if v == ville2 else "#95a5a6")
+            for v in df_top20["nom_commune"]
+        },
+        title=f"Top 20 loyers {type_bien}s (€/m²)",
+    )
+    fig_top.update_traces(texttemplate="%{text:.2f} €", textposition="outside")
+    fig_top.update_layout(
+        height=560, showlegend=False,
+        xaxis_title="Loyer au m² (€)", yaxis_title="",
+        margin=dict(t=40),
+    )
+    st.plotly_chart(fig_top, use_container_width=True)
+
+    st.divider()
+
+    # Tableau complet avec filtre
+    st.markdown("#### 📋 Tableau complet")
+    search = st.text_input("🔍 Rechercher une ville :", "")
+    df_show = df_best.copy()
+    if search:
+        df_show = df_show[df_show["nom_commune"].str.lower().str.contains(search.lower())]
+
+    df_show = df_show[["rang", "nom_commune", "loyer_m2", "loyer_m2_min",
+                        "loyer_m2_max", "departement", "region"]].copy()
+    df_show.columns = ["Rang", "Ville", "Loyer (€/m²)", "Min (€/m²)",
+                       "Max (€/m²)", "Département", "Région"]
+    df_show["Loyer (€/m²)"] = df_show["Loyer (€/m²)"].round(2)
+    df_show["Min (€/m²)"]   = df_show["Min (€/m²)"].round(2)
+    df_show["Max (€/m²)"]   = df_show["Max (€/m²)"].round(2)
+
+    st.dataframe(df_show, use_container_width=True, hide_index=True)
 
 
 # ─────────────────────────────────────────────
-# ONGLET 4 — CARTE GÉOGRAPHIQUE
+# ONGLET 4 — ANALYSE
 # ─────────────────────────────────────────────
-def tab_carte(df_raw):
-    st.subheader("🗺️ Répartition géographique des logements autorisés")
+def tab_analyse(ville1, ville2, s1, s2):
+    st.subheader("🧠 Analyse du marché locatif")
 
-    if "GeoPoint" not in df_raw.columns:
-        st.info("ℹ️ Colonne 'GeoPoint' absente des données — carte non disponible.")
-        return
+    a1 = s1.get("Appartement")
+    a2 = s2.get("Appartement")
+    m1 = s1.get("Maison")
+    m2 = s2.get("Maison")
 
-    df_map = df_raw.copy()
-    coords = df_map["GeoPoint"].astype(str).str.split(",", expand=True)
-    df_map["lat"] = pd.to_numeric(coords[0], errors="coerce")
-    df_map["lon"] = pd.to_numeric(coords[1], errors="coerce")
-    df_map["nb_logements"] = pd.to_numeric(
-        df_map["nb_logements"].astype(str).str.replace(",", "."), errors="coerce"
-    )
-    df_map["annee"] = pd.to_numeric(df_map["annee"], errors="coerce")
-    df_map = df_map.dropna(subset=["lat", "lon", "nb_logements", "annee"])
+    lignes = []
 
-    if df_map.empty:
-        st.warning("⚠️ Aucune coordonnée valide après nettoyage.")
-        return
-
-    annee_min = int(df_map["annee"].min())
-    annee_max = int(df_map["annee"].max())
-    annee_sel = st.slider("📅 Choisir une année :", annee_min, annee_max, annee_max)
-    df_filtered = df_map[df_map["annee"] == annee_sel]
-    st.caption(f"📍 {len(df_filtered)} points affichés pour {annee_sel}.")
-
-    fig_map = px.scatter_mapbox(
-        df_filtered, lat="lat", lon="lon",
-        color="ville", size="nb_logements",
-        color_discrete_map={"Paris": COLOR_PARIS, "Marseille": COLOR_MARSEILLE},
-        hover_name="ville",
-        hover_data={"nb_logements": True, "annee": True, "lat": False, "lon": False},
-        zoom=4.5,
-        center={"lat": 46.6, "lon": 2.5},
-        height=550,
-    )
-    fig_map.update_layout(
-        mapbox_style="carto-positron",
-        margin={"r": 0, "t": 0, "l": 0, "b": 0},
-    )
-    st.plotly_chart(fig_map, use_container_width=True)
-    st.caption(
-        "👉 La taille des bulles est proportionnelle au nombre de logements autorisés. "
-        "Paris concentre ses autorisations dans une zone dense, tandis que Marseille "
-        "montre une dispersion plus large liée à son territoire étendu (240 km²)."
-    )
-
-
-# ─────────────────────────────────────────────
-# ONGLET 5 — ANALYSE APPROFONDIE
-# ─────────────────────────────────────────────
-def tab_analyse(df_grouped, latest_year):
-    st.subheader("🧠 Analyse approfondie du marché du logement")
-
-    paris_val = get_val(df_grouped, "Paris",     latest_year)
-    mars_val  = get_val(df_grouped, "Marseille", latest_year)
-    ratio     = paris_val / mars_val if mars_val > 0 else 0
-
-    # ── Contexte général ─────────────────────
-    st.markdown("#### 🏙️ Contexte et différences structurelles")
-    col_p, col_m = st.columns(2)
-
-    with col_p:
-        st.markdown(f"""
-**🗼 Paris — {fmt(paris_val)} logements en {latest_year}**
-
-Paris est soumise à une **pression foncière extrême** : prix au m² parmi
-les plus élevés d'Europe et superficie limitée à **105 km²**.
-Les politiques de construction sont contraintes par :
-- La densité déjà très élevée (≈ 20 000 hab/km²).
-- La préservation du patrimoine architectural.
-- Un marché locatif sous tension (~60 % de locataires).
-        """)
-
-    with col_m:
-        st.markdown(f"""
-**⚓ Marseille — {fmt(mars_val)} logements en {latest_year}**
-
-Marseille dispose de **réserves foncières bien plus importantes** sur ses
-**240 km²** de territoire. Le marché y est structurellement différent :
-- Des prix au m² nettement inférieurs (~2× moins chers qu'à Paris).
-- Une part de propriétaires plus élevée.
-- Des inégalités marquées entre les arrondissements nord et sud.
-        """)
-
-    st.divider()
-
-    # ── Top 3 années ──────────────────────────
-    st.markdown("#### 📊 Années clés par ville")
-    col_a, col_b = st.columns(2)
-    for col, ville in [(col_a, "Paris"), (col_b, "Marseille")]:
-        sub = df_grouped[df_grouped["ville"] == ville].sort_values("nb_logements", ascending=False)
-        with col:
-            emoji = "🗼" if ville == "Paris" else "⚓"
-            st.markdown(f"**{emoji} {ville} — Top 3 années**")
-            for _, row in sub.head(3).iterrows():
-                st.markdown(f"- **{int(row['annee'])}** : {fmt(int(row['nb_logements']))} logements")
-
-    st.divider()
-
-    # ── Évolution relative base 100 ───────────
-    st.markdown("#### 📈 Évolution relative (base 100 = première année disponible)")
-    st.caption(
-        "Permet de comparer les dynamiques de croissance indépendamment des volumes absolus."
-    )
-    records = []
-    for ville in ["Paris", "Marseille"]:
-        sub = df_grouped[df_grouped["ville"] == ville].sort_values("annee").copy()
-        if len(sub) > 0:
-            base = sub.iloc[0]["nb_logements"]
-            if base > 0:
-                sub["indice"] = sub["nb_logements"] / base * 100
-                records.append(sub)
-
-    if records:
-        df_idx = pd.concat(records)
-        fig_idx = px.line(
-            df_idx, x="annee", y="indice", color="ville",
-            markers=True,
-            color_discrete_map={"Paris": COLOR_PARIS, "Marseille": COLOR_MARSEILLE},
-            labels={"annee": "Année", "indice": "Indice (base 100)", "ville": "Ville"},
-        )
-        fig_idx.add_hline(y=100, line_dash="dash", line_color="gray", line_width=1,
-                          annotation_text="base 100")
-        fig_idx.update_traces(line_width=2.5, marker_size=6)
-        fig_idx.update_layout(height=360, margin=dict(t=20))
-        st.plotly_chart(fig_idx, use_container_width=True)
-        st.caption(
-            "👉 Un indice > 100 signifie que la ville a augmenté ses autorisations par rapport "
-            "à sa propre première année de référence — indépendamment des volumes absolus."
+    if a1 and a2:
+        diff_a = a2["loyer_m2"] - a1["loyer_m2"]
+        plus_a = ville2 if diff_a > 0 else ville1
+        lignes.append(
+            f"**🏢 Appartements** : {plus_a} est plus chère de **{abs(diff_a):.2f} €/m²** "
+            f"({max(a1['loyer_m2'], a2['loyer_m2']):.2f} €/m² vs "
+            f"{min(a1['loyer_m2'], a2['loyer_m2']):.2f} €/m²)."
         )
 
-    st.divider()
+    if m1 and m2:
+        diff_m = m2["loyer_m2"] - m1["loyer_m2"]
+        plus_m = ville2 if diff_m > 0 else ville1
+        lignes.append(
+            f"**🏠 Maisons** : {plus_m} est plus chère de **{abs(diff_m):.2f} €/m²** "
+            f"({max(m1['loyer_m2'], m2['loyer_m2']):.2f} €/m² vs "
+            f"{min(m1['loyer_m2'], m2['loyer_m2']):.2f} €/m²)."
+        )
 
-    # ── Synthèse ──────────────────────────────
-    st.markdown("#### 📌 Synthèse comparative")
-    st.success(
-        f"L'écart entre Paris (**{fmt(paris_val)}**) et Marseille (**{fmt(mars_val)}**) "
-        f"est un facteur **{ratio:.1f}×**, ce qui reflète fidèlement la différence de population.\n\n"
-        "Les deux villes font face à des défis distincts : "
-        "Paris doit **densifier encore** un tissu urbain déjà saturé, "
-        "tandis que Marseille cherche à **rééquilibrer son territoire** en favorisant "
-        "la réhabilitation des quartiers nord et la maîtrise de l'étalement urbain au sud."
-    )
+    if a1 and m1:
+        diff_v1 = a1["loyer_m2"] - m1["loyer_m2"]
+        lignes.append(
+            f"**📊 À {ville1}** : les appartements coûtent "
+            f"{'plus' if diff_v1 > 0 else 'moins'} cher que les maisons "
+            f"({abs(diff_v1):.2f} €/m² d'écart)."
+        )
+
+    if a2 and m2:
+        diff_v2 = a2["loyer_m2"] - m2["loyer_m2"]
+        lignes.append(
+            f"**📊 À {ville2}** : les appartements coûtent "
+            f"{'plus' if diff_v2 > 0 else 'moins'} cher que les maisons "
+            f"({abs(diff_v2):.2f} €/m² d'écart)."
+        )
+
+    if lignes:
+        for l in lignes:
+            st.markdown(f"- {l}")
+    else:
+        st.info("Données insuffisantes pour l'analyse.")
+
+    st.markdown("""
+---
+**ℹ️ À propos des données**
+
+Les loyers sont issus du **modèle de prédiction DHUP** (Direction de l'Habitat, de l'Urbanisme et des Paysages).
+Il s'agit de **loyers de référence estimés** — non des loyers réels observés — basés sur les déclarations fiscales.
+
+- `niveau_prediction = "commune"` : l'estimation est fiable au niveau de la commune.
+- `niveau_prediction = "maille"` : l'estimation est mutualisée avec les communes voisines (moins précise).
+- Le **R² ajusté** mesure la qualité du modèle (proche de 1 = très bon).
+    """)
 
 
 # ─────────────────────────────────────────────
 # FONCTION PRINCIPALE
 # ─────────────────────────────────────────────
-def show_logement():
+def show_logement(ville1, ville2, v1_info, v2_info):
     st.header("🏠 Logement")
     st.caption(
-        "Sources : Logements_Paris.xlsx · Logements_Marseille.xlsx (INSEE / Open Data) · "
-        "Données : autorisations de construction par année"
+        f"Comparaison : **{ville1}** vs **{ville2}** · "
+        "Source : DHUP — pred-app-mef-dhup.csv & pred-mai-mef-dhup.csv"
     )
 
-    with st.spinner("Chargement des données logement..."):
-        df_raw, _, _ = load_logements()
-        df_grouped   = build_grouped(df_raw)
-        latest_year  = latest_common_year(df_grouped)
-
-    if latest_year is None:
-        st.error("❌ Impossible de trouver une année commune entre Paris et Marseille.")
+    df = load_logement()
+    if df is None:
+        st.error(
+            "❌ Fichier `data/clean/logement.csv` introuvable.\n\n"
+            "Exécute : `python prepare_data.py`"
+        )
         return
 
-    st.info(f"📅 Année de référence pour la comparaison : **{latest_year}**")
+    df1 = get_ville_logement(df, ville1)
+    df2 = get_ville_logement(df, ville2)
 
-    onglet1, onglet2, onglet3, onglet4, onglet5 = st.tabs([
-        "📊 Vue globale",
-        "📈 Évolution",
-        "📊 Comparaison annuelle",
-        "🗺️ Carte",
-        "🧠 Analyse approfondie",
+    if df1.empty:
+        st.warning(f"⚠️ Aucune donnée logement pour **{ville1}**.")
+    if df2.empty:
+        st.warning(f"⚠️ Aucune donnée logement pour **{ville2}**.")
+
+    s1 = get_stats(df1) if not df1.empty else {}
+    s2 = get_stats(df2) if not df2.empty else {}
+
+    onglet1, onglet2, onglet3, onglet4 = st.tabs([
+        "💶 Chiffres clés",
+        "📊 Comparaison",
+        "🏆 Classement national",
+        "🧠 Analyse",
     ])
 
     with onglet1:
-        tab_vue_globale(df_grouped, latest_year)
-
+        tab_kpis(ville1, ville2, s1, s2)
     with onglet2:
-        tab_evolution(df_grouped)
-
+        tab_comparaison(ville1, ville2, s1, s2)
     with onglet3:
-        tab_comparaison(df_grouped)
-
+        tab_classement(df, ville1, ville2)
     with onglet4:
-        tab_carte(df_raw)
-
-    with onglet5:
-        tab_analyse(df_grouped, latest_year)
+        tab_analyse(ville1, ville2, s1, s2)
 
     with st.expander("📚 Sources de données"):
         st.markdown("""
-| Dataset | Ville | Source |
+| Dataset | Description | Source |
 |---|---|---|
-| Logements autorisés | Paris | [Open Data Paris](https://opendata.paris.fr) / INSEE |
-| Logements autorisés | Marseille | [Open Data AMP](https://data.ampmetropole.fr) / INSEE |
-
-> ⚠️ Les données correspondent aux **autorisations de construction** délivrées par année,
-> pas au parc total de logements existants.
+| pred-app-mef-dhup.csv | Loyers de référence appartements au m² | [DHUP / data.gouv.fr](https://www.data.gouv.fr) |
+| pred-mai-mef-dhup.csv | Loyers de référence maisons au m² | [DHUP / data.gouv.fr](https://www.data.gouv.fr) |
         """)

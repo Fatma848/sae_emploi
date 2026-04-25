@@ -1,0 +1,484 @@
+﻿code_insee,nom_commune,population,superficie_km2,densite,latitude,longitude,region,departement,dep_code,altitude_moyenne,grille_densite_texte,niveau_equipements_services_texte
+80001,Abbeville,22595,26,855.0,50.106,1.834,Hauts-de-France,Somme,80,27,Centres urbains intermédiaires,centres structurants d'équipements et de services
+78005,Achères,21368,10,2242.0,48.961,2.07,Île-de-France,Yvelines,78,24,Grands centres urbains,centres structurants d'équipements et de services
+34003,Agde,29103,51,572.0,43.313,3.478,Occitanie,Hérault,34,8,Centres urbains intermédiaires,centres structurants d'équipements et de services
+47001,Agen,32485,12,2820.0,44.203,0.616,Nouvelle-Aquitaine,Lot-et-Garonne,47,65,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+13001,Aix-en-Provence,147478,188,786.0,43.53,5.447,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,236,Grands centres urbains,centres majeurs d'équipements et de services
+73008,Aix-les-Bains,31874,16,2020.0,45.689,5.915,Auvergne-Rhône-Alpes,Savoie,73,281,Centres urbains intermédiaires,centres structurants d'équipements et de services
+2A004,Ajaccio,73822,83,888.0,41.919,8.739,Corse,Corse-du-Sud,2A,136,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+81004,Albi,49714,45,1106.0,43.927,2.146,Occitanie,Tarn,81,182,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+61001,Alençon,25555,11,2373.0,48.43,0.082,Normandie,Orne,61,140,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+94002,Alfortville,45046,4,12241.0,48.805,2.42,Île-de-France,Val-de-Marne,94,32,Grands centres urbains,centres structurants d'équipements et de services
+13002,Allauch,21490,50,427.0,43.336,5.482,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,341,Grands centres urbains,centres intermédiaires d'équipements et de services
+30007,Alès,43892,23,1886.0,44.125,4.077,Occitanie,Gard,30,154,Centres urbains intermédiaires,centres structurants d'équipements et de services
+80021,Amiens,133625,50,2668.0,49.894,2.296,Hauts-de-France,Somme,80,47,Grands centres urbains,centres majeurs d'équipements et de services
+49007,Angers,157175,44,3546.0,47.471,-0.548,Pays de la Loire,Maine-et-Loire,49,32,Grands centres urbains,centres majeurs d'équipements et de services
+64024,Anglet,41153,28,1489.0,43.481,-1.515,Nouvelle-Aquitaine,Pyrénées-Atlantiques,64,25,Grands centres urbains,centres structurants d'équipements et de services
+16015,Angoulême,41086,22,1894.0,45.648,0.156,Nouvelle-Aquitaine,Charente,16,61,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+74010,Annecy,131715,16,8258.0,45.899,6.129,Auvergne-Rhône-Alpes,Haute-Savoie,74,554,Grands centres urbains,centres majeurs d'équipements et de services
+74012,Annemasse,37918,5,7676.0,46.193,6.234,Auvergne-Rhône-Alpes,Haute-Savoie,74,443,Grands centres urbains,centres structurants d'équipements et de services
+06004,Antibes,75130,27,2784.0,43.581,7.128,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,44,Grands centres urbains,centres structurants d'équipements et de services
+92002,Antony,63232,10,6614.0,48.754,2.296,Île-de-France,Hauts-de-Seine,92,66,Grands centres urbains,centres structurants d'équipements et de services
+94003,Arcueil,21557,2,9292.0,48.806,2.337,Île-de-France,Val-de-Marne,94,70,Grands centres urbains,centres intermédiaires d'équipements et de services
+95018,Argenteuil,107221,17,6169.0,48.948,2.249,Île-de-France,Val-d'Oise,95,55,Grands centres urbains,centres structurants d'équipements et de services
+13004,Arles,50415,758,66.0,43.677,4.627,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,4,Centres urbains intermédiaires,centres structurants d'équipements et de services
+59017,Armentières,25581,6,4106.0,50.687,2.882,Hauts-de-France,Nord,59,16,Centres urbains intermédiaires,centres structurants d'équipements et de services
+62041,Arras,42600,12,3571.0,50.293,2.779,Hauts-de-France,Pas-de-Calais,62,75,Grands centres urbains,centres majeurs d'équipements et de services
+92004,Asnières-sur-Seine,89662,5,18602.0,48.911,2.289,Île-de-France,Hauts-de-Seine,92,31,Grands centres urbains,centres structurants d'équipements et de services
+91027,Athis-Mons,36222,9,4207.0,48.708,2.389,Île-de-France,Essonne,91,69,Grands centres urbains,centres structurants d'équipements et de services
+13005,Aubagne,47342,55,863.0,43.292,5.57,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,194,Grands centres urbains,centres structurants d'équipements et de services
+93001,Aubervilliers,90071,6,15610.0,48.915,2.382,Île-de-France,Seine-Saint-Denis,93,40,Grands centres urbains,centres structurants d'équipements et de services
+32013,Auch,23041,73,314.0,43.647,0.583,Occitanie,Gers,32,185,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+93005,Aulnay-sous-Bois,86135,16,5337.0,48.934,2.5,Île-de-France,Seine-Saint-Denis,93,54,Grands centres urbains,centres structurants d'équipements et de services
+15014,Aurillac,25815,29,885.0,44.93,2.446,Auvergne-Rhône-Alpes,Cantal,15,668,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+89024,Auxerre,34778,50,698.0,47.796,3.57,Bourgogne-Franche-Comté,Yonne,89,147,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+84007,Avignon,90330,65,1392.0,43.949,4.805,Provence-Alpes-Côte d'Azur,Vaucluse,84,25,Grands centres urbains,centres majeurs d'équipements et de services
+92007,Bagneux,43699,4,10454.0,48.799,2.304,Île-de-France,Hauts-de-Seine,92,86,Grands centres urbains,centres structurants d'équipements et de services
+93006,Bagnolet,39366,3,15318.0,48.869,2.416,Île-de-France,Seine-Saint-Denis,93,97,Grands centres urbains,centres structurants d'équipements et de services
+97103,Baie-Mahault,30909,47,664.0,16.268,-61.587,Guadeloupe,Guadeloupe,971,18,Ceintures urbaines,
+2B033,Bastia,48768,20,2467.0,42.702,9.452,Corse,Haute-Corse,2B,260,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+64102,Bayonne,52749,26,2041.0,43.493,-1.475,Nouvelle-Aquitaine,Pyrénées-Atlantiques,64,17,Grands centres urbains,centres majeurs d'équipements et de services
+21054,Beaune,20032,31,644.0,47.026,4.84,Bourgogne-Franche-Comté,Côte-d'Or,21,252,Centres urbains intermédiaires,centres structurants d'équipements et de services
+49023,Beaupréau-en-Mauges,23639,36,659.0,47.209,-0.982,Pays de la Loire,Maine-et-Loire,49,88,Bourgs ruraux,centres structurants d'équipements et de services
+60057,Beauvais,56677,33,1713.0,49.43,2.082,Hauts-de-France,Oise,60,91,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+90010,Belfort,45155,17,2644.0,47.638,6.863,Bourgogne-Franche-Comté,Territoire de Belfort,90,412,Grands centres urbains,centres majeurs d'équipements et de services
+24037,Bergerac,26323,57,465.0,44.85,0.485,Nouvelle-Aquitaine,Dordogne,24,50,Centres urbains intermédiaires,centres structurants d'équipements et de services
+25056,Besançon,119198,65,1831.0,47.238,6.024,Bourgogne-Franche-Comté,Doubs,25,320,Grands centres urbains,centres majeurs d'équipements et de services
+95063,Bezons,32017,4,7660.0,48.928,2.216,Île-de-France,Val-d'Oise,95,32,Grands centres urbains,centres structurants d'équipements et de services
+64122,Biarritz,25764,12,2086.0,43.483,-1.558,Nouvelle-Aquitaine,Pyrénées-Atlantiques,64,47,Grands centres urbains,centres structurants d'équipements et de services
+31069,Blagnac,26466,17,1539.0,43.635,1.398,Occitanie,Haute-Garonne,31,142,Grands centres urbains,centres structurants d'équipements et de services
+41018,Blois,46813,38,1248.0,47.589,1.337,Centre-Val de Loire,Loir-et-Cher,41,103,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+93008,Bobigny,55056,7,8169.0,48.906,2.445,Île-de-France,Seine-Saint-Denis,93,48,Grands centres urbains,centres majeurs d'équipements et de services
+92009,Bois-Colombes,29765,2,15422.0,48.914,2.268,Île-de-France,Hauts-de-Seine,92,36,Grands centres urbains,centres structurants d'équipements et de services
+93010,Bondy,52905,5,9672.0,48.902,2.481,Île-de-France,Seine-Saint-Denis,93,54,Grands centres urbains,centres structurants d'équipements et de services
+33063,Bordeaux,261804,50,5268.0,44.838,-0.579,Nouvelle-Aquitaine,Gironde,33,9,Grands centres urbains,centres majeurs d'équipements et de services
+44020,Bouguenais,20410,31,656.0,47.179,-1.619,Pays de la Loire,Loire-Atlantique,44,22,Ceintures urbaines,centres intermédiaires d'équipements et de services
+92012,Boulogne-Billancourt,119808,6,19481.0,48.836,2.241,Île-de-France,Hauts-de-Seine,92,33,Grands centres urbains,centres structurants d'équipements et de services
+62160,Boulogne-sur-Mer,40910,8,5245.0,50.725,1.613,Hauts-de-France,Pas-de-Calais,62,34,Grands centres urbains,centres majeurs d'équipements et de services
+01053,Bourg-en-Bresse,41525,24,1730.0,46.205,5.225,Auvergne-Rhône-Alpes,Ain,1,239,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+92014,Bourg-la-Reine,20810,2,11188.0,48.779,2.316,Île-de-France,Hauts-de-Seine,92,55,Grands centres urbains,centres structurants d'équipements et de services
+18033,Bourges,63702,69,930.0,47.081,2.399,Centre-Val de Loire,Cher,18,145,Grands centres urbains,centres majeurs d'équipements et de services
+38053,Bourgoin-Jallieu,29577,25,1199.0,45.594,5.277,Auvergne-Rhône-Alpes,Isère,38,265,Centres urbains intermédiaires,centres structurants d'équipements et de services
+29019,Brest,139619,49,2842.0,48.391,-4.485,Bretagne,Finistère,29,57,Grands centres urbains,centres majeurs d'équipements et de services
+19031,Brive-la-Gaillarde,46599,48,962.0,45.16,1.534,Nouvelle-Aquitaine,Corrèze,19,167,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+69029,Bron,43049,10,4196.0,45.734,4.909,Auvergne-Rhône-Alpes,Rhône,69,198,Grands centres urbains,centres structurants d'équipements et de services
+62178,Bruay-la-Buissière,21827,17,1322.0,50.482,2.546,Hauts-de-France,Pas-de-Calais,62,63,Centres urbains intermédiaires,centres structurants d'équipements et de services
+33075,Bruges,20215,14,1424.0,44.882,-0.613,Nouvelle-Aquitaine,Gironde,33,6,Grands centres urbains,centres structurants d'équipements et de services
+91114,Brunoy,25423,7,3864.0,48.698,2.504,Île-de-France,Essonne,91,70,Grands centres urbains,centres structurants d'équipements et de services
+91103,Brétigny-sur-Orge,27106,15,1857.0,48.612,2.306,Île-de-France,Essonne,91,75,Grands centres urbains,centres structurants d'équipements et de services
+77058,Bussy-Saint-Georges,26571,15,1742.0,48.844,2.698,Île-de-France,Seine-et-Marne,77,116,Grands centres urbains,centres intermédiaires d'équipements et de services
+33039,Bègles,30813,11,2817.0,44.808,-0.544,Nouvelle-Aquitaine,Gironde,33,7,Grands centres urbains,centres structurants d'équipements et de services
+62119,Béthune,24992,10,2631.0,50.531,2.639,Hauts-de-France,Pas-de-Calais,62,25,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+34032,Béziers,80341,96,840.0,43.343,3.214,Occitanie,Hérault,34,45,Grands centres urbains,centres majeurs d'équipements et de services
+94016,Cachan,30592,3,11004.0,48.795,2.334,Île-de-France,Val-de-Marne,94,62,Grands centres urbains,centres structurants d'équipements et de services
+14118,Caen,108200,26,4205.0,49.181,-0.373,Normandie,Calvados,14,34,Grands centres urbains,centres majeurs d'équipements et de services
+06027,Cagnes-sur-Mer,52580,18,2887.0,43.664,7.149,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,64,Grands centres urbains,centres structurants d'équipements et de services
+46042,Cahors,20141,65,311.0,44.447,1.441,Occitanie,Lot,46,205,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+62193,Calais,67380,33,2014.0,50.953,1.855,Hauts-de-France,Pas-de-Calais,62,4,Grands centres urbains,centres majeurs d'équipements et de services
+69034,Caluire-et-Cuire,43572,10,4190.0,45.797,4.842,Auvergne-Rhône-Alpes,Rhône,69,228,Grands centres urbains,centres structurants d'équipements et de services
+59122,Cambrai,31425,18,1726.0,50.176,3.235,Hauts-de-France,Nord,59,64,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+06029,Cannes,73255,21,3490.0,43.551,7.013,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,41,Grands centres urbains,centres majeurs d'équipements et de services
+11069,Carcassonne,46218,65,710.0,43.212,2.353,Occitanie,Aude,11,129,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+84031,Carpentras,30769,38,813.0,44.056,5.049,Provence-Alpes-Côte d'Azur,Vaucluse,84,105,Centres urbains intermédiaires,centres structurants d'équipements et de services
+44026,Carquefou,20510,43,473.0,47.299,-1.493,Pays de la Loire,Loire-Atlantique,44,29,Centres urbains intermédiaires,centres structurants d'équipements et de services
+34057,Castelnau-le-Lez,24888,11,2242.0,43.633,3.898,Occitanie,Hérault,34,50,Grands centres urbains,centres structurants d'équipements et de services
+81065,Castres,42672,99,432.0,43.604,2.242,Occitanie,Tarn,81,219,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+84035,Cavaillon,25923,46,565.0,43.836,5.038,Provence-Alpes-Côte d'Azur,Vaucluse,84,74,Centres urbains intermédiaires,centres structurants d'équipements et de services
+97302,Cayenne,63468,31,2063.0,4.938,-52.335,Guyane,Guyane,973,8,Grands centres urbains,
+33119,Cenon,26778,6,4690.0,44.858,-0.531,Nouvelle-Aquitaine,Gironde,33,46,Grands centres urbains,centres structurants d'équipements et de services
+95127,Cergy,68348,15,4704.0,49.052,2.035,Île-de-France,Val-d'Oise,95,62,Grands centres urbains,centres majeurs d'équipements et de services
+85047,Challans,22494,65,344.0,46.845,-1.879,Pays de la Loire,Vendée,85,27,Petites villes,centres structurants d'équipements et de services
+71076,Chalon-sur-Saône,45031,15,2945.0,46.781,4.854,Bourgogne-Franche-Comté,Saône-et-Loire,71,180,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+73065,Chambéry,59856,21,2822.0,45.566,5.921,Auvergne-Rhône-Alpes,Savoie,73,308,Grands centres urbains,centres majeurs d'équipements et de services
+94017,Champigny-sur-Marne,77724,11,6878.0,48.813,2.511,Île-de-France,Val-de-Marne,94,67,Grands centres urbains,centres structurants d'équipements et de services
+77083,Champs-sur-Marne,25695,8,3298.0,48.853,2.603,Île-de-France,Seine-et-Marne,77,75,Grands centres urbains,centres structurants d'équipements et de services
+94018,Charenton-le-Pont,29445,2,16090.0,48.82,2.416,Île-de-France,Val-de-Marne,94,43,Grands centres urbains,centres structurants d'équipements et de services
+08105,Charleville-Mézières,46398,32,1460.0,49.76,4.72,Grand Est,Ardennes,8,185,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+28085,Chartres,38447,17,2275.0,48.444,1.489,Centre-Val de Loire,Eure-et-Loir,28,146,Grands centres urbains,centres majeurs d'équipements et de services
+78146,Chatou,29649,5,5848.0,48.89,2.158,Île-de-France,Yvelines,78,40,Grands centres urbains,centres structurants d'équipements et de services
+52121,Chaumont,21699,55,392.0,48.111,5.14,Grand Est,Haute-Marne,52,319,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+77108,Chelles,54309,16,3392.0,48.878,2.59,Île-de-France,Seine-et-Marne,77,53,Grands centres urbains,centres structurants d'équipements et de services
+49092,Chemillé-en-Anjou,21386,49,432.0,47.215,-0.733,Pays de la Loire,Maine-et-Loire,49,92,Bourgs ruraux,centres intermédiaires d'équipements et de services
+50129,Cherbourg-en-Cotentin,77808,16,4925.0,49.642,-1.624,Normandie,Manche,50,46,Grands centres urbains,centres majeurs d'équipements et de services
+94021,Chevilly-Larue,20326,4,4828.0,48.771,2.347,Île-de-France,Val-de-Marne,94,88,Grands centres urbains,centres intermédiaires d'équipements et de services
+94022,Choisy-le-Roi,46129,5,8527.0,48.762,2.41,Île-de-France,Val-de-Marne,94,36,Grands centres urbains,centres structurants d'équipements et de services
+49099,Cholet,53936,87,617.0,47.059,-0.879,Pays de la Loire,Maine-et-Loire,49,116,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+51108,Châlons-en-Champagne,43877,26,1686.0,48.956,4.363,Grand Est,Marne,51,99,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+36044,Châteauroux,42968,25,1692.0,46.811,1.691,Centre-Val de Loire,Indre,36,152,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+86066,Châtellerault,31284,52,604.0,46.818,0.547,Nouvelle-Aquitaine,Vienne,86,77,Centres urbains intermédiaires,centres structurants d'équipements et de services
+92019,Châtenay-Malabry,34898,6,5478.0,48.767,2.278,Île-de-France,Hauts-de-Seine,92,126,Grands centres urbains,centres structurants d'équipements et de services
+92020,Châtillon,36777,3,12552.0,48.8,2.29,Île-de-France,Hauts-de-Seine,92,101,Grands centres urbains,centres structurants d'équipements et de services
+92023,Clamart,54491,9,6220.0,48.801,2.263,Île-de-France,Hauts-de-Seine,92,138,Grands centres urbains,centres structurants d'équipements et de services
+63113,Clermont-Ferrand,147327,43,3421.0,45.78,3.086,Auvergne-Rhône-Alpes,Puy-de-Dôme,63,370,Grands centres urbains,centres majeurs d'équipements et de services
+92024,Clichy,64849,3,21055.0,48.903,2.305,Île-de-France,Hauts-de-Seine,92,30,Grands centres urbains,centres structurants d'équipements et de services
+93014,Clichy-sous-Bois,29735,4,7528.0,48.911,2.546,Île-de-France,Seine-Saint-Denis,93,103,Grands centres urbains,centres intermédiaires d'équipements et de services
+68066,Colmar,67730,66,1019.0,48.079,7.358,Grand Est,Haut-Rhin,68,187,Grands centres urbains,centres majeurs d'équipements et de services
+92025,Colombes,88870,8,11423.0,48.922,2.254,Île-de-France,Hauts-de-Seine,92,33,Grands centres urbains,centres structurants d'équipements et de services
+31149,Colomiers,40159,21,1909.0,43.611,1.335,Occitanie,Haute-Garonne,31,172,Grands centres urbains,centres structurants d'équipements et de services
+77122,Combs-la-Ville,22240,15,1527.0,48.665,2.565,Île-de-France,Seine-et-Marne,77,81,Grands centres urbains,centres structurants d'équipements et de services
+60159,Compiègne,40394,53,760.0,49.418,2.826,Hauts-de-France,Oise,60,46,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+29039,Concarneau,20607,41,502.0,47.871,-3.919,Bretagne,Finistère,29,50,Petites villes,centres structurants d'équipements et de services
+78172,Conflans-Sainte-Honorine,35926,10,3629.0,48.994,2.095,Île-de-France,Yvelines,78,44,Grands centres urbains,centres structurants d'équipements et de services
+91174,Corbeil-Essonnes,52683,11,4772.0,48.614,2.482,Île-de-France,Essonne,91,55,Grands centres urbains,centres structurants d'équipements et de services
+95176,Cormeilles-en-Parisis,26741,8,3150.0,48.976,2.199,Île-de-France,Val-d'Oise,95,88,Grands centres urbains,centres structurants d'équipements et de services
+59155,Coudekerque-Branche,20765,9,2255.0,51.019,2.381,Hauts-de-France,Nord,59,3,Grands centres urbains,centres structurants d'équipements et de services
+92026,Courbevoie,81516,4,19595.0,48.895,2.255,Île-de-France,Hauts-de-Seine,92,41,Grands centres urbains,centres structurants d'équipements et de services
+63124,Cournon-d'Auvergne,20193,19,1071.0,45.742,3.199,Auvergne-Rhône-Alpes,Puy-de-Dôme,63,375,Centres urbains intermédiaires,centres structurants d'équipements et de services
+44047,Couëron,23057,49,473.0,47.212,-1.728,Pays de la Loire,Loire-Atlantique,44,23,Ceintures urbaines,centres intermédiaires d'équipements et de services
+60175,Creil,36106,11,3270.0,49.261,2.473,Hauts-de-France,Oise,60,74,Grands centres urbains,centres structurants d'équipements et de services
+59163,Croix,20778,4,4648.0,50.68,3.156,Hauts-de-France,Nord,59,35,Grands centres urbains,centres structurants d'équipements et de services
+94028,Créteil,92989,11,8128.0,48.778,2.453,Île-de-France,Val-de-Marne,94,39,Grands centres urbains,centres majeurs d'équipements et de services
+31157,Cugnaux,20341,13,1562.0,43.537,1.345,Occitanie,Haute-Garonne,31,164,Grands centres urbains,centres structurants d'équipements et de services
+77152,Dammarie-les-Lys,22845,10,2233.0,48.515,2.635,Île-de-France,Seine-et-Marne,77,68,Grands centres urbains,centres structurants d'équipements et de services
+40088,Dax,21347,20,1084.0,43.709,-1.052,Nouvelle-Aquitaine,Landes,40,14,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+59172,Denain,20640,12,1779.0,50.326,3.394,Hauts-de-France,Nord,59,36,Centres urbains intermédiaires,centres structurants d'équipements et de services
+95197,Deuil-la-Barre,22510,4,6035.0,48.975,2.328,Île-de-France,Val-d'Oise,95,49,Grands centres urbains,centres intermédiaires d'équipements et de services
+76217,Dieppe,28358,12,2332.0,49.923,1.078,Normandie,Seine-Maritime,76,48,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+21231,Dijon,159346,42,3831.0,47.322,5.042,Bourgogne-Franche-Comté,Côte-d'Or,21,265,Grands centres urbains,centres majeurs d'équipements et de services
+39198,Dole,23775,38,624.0,47.091,5.489,Bourgogne-Franche-Comté,Jura,39,227,Centres urbains intermédiaires,centres structurants d'équipements et de services
+59178,Douai,39648,17,2343.0,50.368,3.08,Hauts-de-France,Nord,59,24,Grands centres urbains,centres majeurs d'équipements et de services
+83050,Draguignan,39745,54,735.0,43.538,6.463,Provence-Alpes-Côte d'Azur,Var,83,281,Centres urbains intermédiaires,centres structurants d'équipements et de services
+93029,Drancy,71363,8,9173.0,48.923,2.445,Île-de-France,Seine-Saint-Denis,93,46,Grands centres urbains,centres structurants d'équipements et de services
+91201,Draveil,29173,16,1831.0,48.682,2.405,Île-de-France,Essonne,91,61,Grands centres urbains,centres structurants d'équipements et de services
+28134,Dreux,30879,24,1272.0,48.736,1.371,Centre-Val de Loire,Eure-et-Loir,28,119,Centres urbains intermédiaires,centres structurants d'équipements et de services
+59183,Dunkerque,86788,43,2020.0,51.038,2.377,Hauts-de-France,Nord,59,5,Grands centres urbains,centres majeurs d'équipements et de services
+69275,Décines-Charpieu,29731,17,1746.0,45.768,4.957,Auvergne-Rhône-Alpes,Rhône,69,189,Grands centres urbains,centres structurants d'équipements et de services
+95203,Eaubonne,25373,4,5793.0,48.991,2.28,Île-de-France,Val-d'Oise,95,56,Grands centres urbains,centres structurants d'équipements et de services
+95219,Ermont,28987,4,6918.0,48.992,2.259,Île-de-France,Val-d'Oise,95,54,Grands centres urbains,centres structurants d'équipements et de services
+33162,Eysines,24374,12,2026.0,44.886,-0.649,Nouvelle-Aquitaine,Gironde,33,24,Grands centres urbains,centres structurants d'équipements et de services
+45147,Fleury-les-Aubrais,21438,10,2110.0,47.931,1.921,Centre-Val de Loire,Loiret,45,122,Grands centres urbains,centres intermédiaires d'équipements et de services
+38169,Fontaine,22891,7,3422.0,45.192,5.688,Auvergne-Rhône-Alpes,Isère,38,307,Grands centres urbains,centres structurants d'équipements et de services
+92032,Fontenay-aux-Roses,24772,3,9791.0,48.791,2.286,Île-de-France,Hauts-de-Seine,92,109,Grands centres urbains,centres structurants d'équipements et de services
+94033,Fontenay-sous-Bois,51812,6,9302.0,48.849,2.475,Île-de-France,Val-de-Marne,94,77,Grands centres urbains,centres structurants d'équipements et de services
+57227,Forbach,21130,16,1284.0,49.186,6.896,Grand Est,Moselle,57,244,Centres urbains intermédiaires,centres structurants d'équipements et de services
+97209,Fort-de-France,74921,44,1721.0,14.607,-61.07,Martinique,Martinique,972,201,Grands centres urbains,
+35115,Fougères,20653,10,1982.0,48.352,-1.204,Bretagne,Ille-et-Vilaine,35,109,Centres urbains intermédiaires,centres structurants d'équipements et de services
+95252,Franconville,37520,6,6022.0,48.986,2.23,Île-de-France,Val-d'Oise,95,81,Grands centres urbains,centres structurants d'équipements et de services
+94034,Fresnes,28780,4,8107.0,48.755,2.322,Île-de-France,Val-de-Marne,94,69,Grands centres urbains,centres structurants d'équipements et de services
+34108,Frontignan,23808,40,598.0,43.446,3.756,Occitanie,Hérault,34,28,Centres urbains intermédiaires,centres structurants d'équipements et de services
+83061,Fréjus,57082,105,543.0,43.433,6.737,Provence-Alpes-Côte d'Azur,Var,83,110,Grands centres urbains,centres structurants d'équipements et de services
+93032,Gagny,40189,7,5749.0,48.885,2.537,Île-de-France,Seine-Saint-Denis,93,70,Grands centres urbains,centres structurants d'équipements et de services
+05061,Gap,40500,109,372.0,44.559,6.08,Provence-Alpes-Côte d'Azur,Hautes-Alpes,5,1113,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+13041,Gardanne,21174,27,779.0,43.456,5.471,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,260,Centres urbains intermédiaires,centres structurants d'équipements et de services
+95268,Garges-lès-Gonesse,42841,5,7875.0,48.972,2.401,Île-de-France,Val-d'Oise,95,52,Grands centres urbains,centres structurants d'équipements et de services
+92036,Gennevilliers,49410,12,4248.0,48.926,2.293,Île-de-France,Hauts-de-Seine,92,28,Grands centres urbains,centres structurants d'équipements et de services
+91272,Gif-sur-Yvette,22352,12,1875.0,48.702,2.134,Île-de-France,Essonne,91,123,Grands centres urbains,centres structurants d'équipements et de services
+69091,Givors,20654,17,1182.0,45.582,4.774,Auvergne-Rhône-Alpes,Rhône,69,243,Centres urbains intermédiaires,centres structurants d'équipements et de services
+95277,Gonesse,25963,20,1280.0,48.986,2.45,Île-de-France,Val-d'Oise,95,70,Grands centres urbains,centres structurants d'équipements et de services
+95280,Goussainville,30693,11,2678.0,49.032,2.473,Île-de-France,Val-d'Oise,95,88,Centres urbains intermédiaires,centres structurants d'équipements et de services
+33192,Gradignan,25835,16,1650.0,44.772,-0.608,Nouvelle-Aquitaine,Gironde,33,32,Grands centres urbains,centres structurants d'équipements et de services
+59271,Grande-Synthe,20331,21,964.0,51.014,2.302,Hauts-de-France,Nord,59,4,Grands centres urbains,centres structurants d'équipements et de services
+06069,Grasse,48323,44,1091.0,43.658,6.925,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,356,Centres urbains intermédiaires,centres structurants d'équipements et de services
+38185,Grenoble,157477,19,8485.0,45.186,5.736,Auvergne-Rhône-Alpes,Isère,38,219,Grands centres urbains,centres majeurs d'équipements et de services
+91286,Grigny,27257,5,5441.0,48.656,2.385,Île-de-France,Essonne,91,62,Grands centres urbains,centres intermédiaires d'équipements et de services
+33199,Gujan-Mestras,22399,50,446.0,44.636,-1.071,Nouvelle-Aquitaine,Gironde,33,15,Ceintures urbaines,centres structurants d'équipements et de services
+78297,Guyancourt,29406,13,2219.0,48.771,2.07,Île-de-France,Yvelines,78,156,Grands centres urbains,centres structurants d'équipements et de services
+67180,Haguenau,35715,184,195.0,48.817,7.788,Grand Est,Bas-Rhin,67,148,Centres urbains intermédiaires,centres structurants d'équipements et de services
+59279,Halluin,20829,13,1644.0,50.783,3.125,Hauts-de-France,Nord,59,25,Grands centres urbains,centres intermédiaires d'équipements et de services
+59295,Hazebrouck,21498,27,782.0,50.723,2.537,Hauts-de-France,Nord,59,28,Centres urbains intermédiaires,centres structurants d'équipements et de services
+95306,Herblay-sur-Seine,31605,13,2504.0,48.99,2.165,Île-de-France,Val-d'Oise,95,60,Grands centres urbains,centres structurants d'équipements et de services
+78311,Houilles,33449,4,7500.0,48.923,2.186,Île-de-France,Yvelines,78,38,Grands centres urbains,centres structurants d'équipements et de services
+83069,Hyères,55103,134,413.0,43.12,6.13,Provence-Alpes-Côte d'Azur,Var,83,60,Centres urbains intermédiaires,centres structurants d'équipements et de services
+62427,Hénin-Beaumont,26035,21,1253.0,50.419,2.947,Hauts-de-France,Pas-de-Calais,62,41,Grands centres urbains,centres structurants d'équipements et de services
+14327,Hérouville-Saint-Clair,22227,11,2089.0,49.204,-0.334,Normandie,Calvados,14,32,Grands centres urbains,centres structurants d'équipements et de services
+67218,Illkirch-Graffenstaden,27118,22,1219.0,48.528,7.711,Grand Est,Bas-Rhin,67,143,Grands centres urbains,centres structurants d'équipements et de services
+92040,Issy-les-Moulineaux,68580,4,16175.0,48.824,2.274,Île-de-France,Hauts-de-Seine,92,46,Grands centres urbains,centres structurants d'équipements et de services
+13047,Istres,44577,114,390.0,43.517,4.99,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,34,Centres urbains intermédiaires,centres structurants d'équipements et de services
+94041,Ivry-sur-Seine,64001,6,10458.0,48.812,2.388,Île-de-France,Val-de-Marne,94,44,Grands centres urbains,centres structurants d'équipements et de services
+94042,Joinville-le-Pont,20413,2,8993.0,48.818,2.467,Île-de-France,Val-de-Marne,94,40,Grands centres urbains,centres structurants d'équipements et de services
+37122,Joué-lès-Tours,38183,32,1179.0,47.351,0.662,Centre-Val de Loire,Indre-et-Loire,37,84,Grands centres urbains,centres structurants d'équipements et de services
+97610,Koungou,32156,28,1161.0,-12.733,45.204,Mayotte,Mayotte,976,138,Centres urbains intermédiaires,
+97304,Kourou,24612,2285,11.0,5.158,-52.643,Guyane,Guyane,973,35,Centres urbains intermédiaires,
+94038,L'Haÿ-les-Roses,31392,4,8049.0,48.779,2.338,Île-de-France,Val-de-Marne,94,80,Grands centres urbains,centres structurants d'équipements et de services
+78126,La Celle-Saint-Cloud,20476,6,3488.0,48.848,2.136,Île-de-France,Yvelines,78,146,Grands centres urbains,centres structurants d'équipements et de services
+44035,La Chapelle-sur-Erdre,20331,33,609.0,47.299,-1.551,Pays de la Loire,Loire-Atlantique,44,26,Ceintures urbaines,centres structurants d'équipements et de services
+13028,La Ciotat,36987,32,1147.0,43.174,5.605,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,101,Centres urbains intermédiaires,centres structurants d'équipements et de services
+93027,La Courneuve,47160,8,6288.0,48.927,2.39,Île-de-France,Seine-Saint-Denis,93,37,Grands centres urbains,centres structurants d'équipements et de services
+83062,La Garde,25912,16,1643.0,43.124,6.01,Provence-Alpes-Côte d'Azur,Var,83,39,Grands centres urbains,centres structurants d'équipements et de services
+92035,La Garenne-Colombes,29932,2,16816.0,48.907,2.247,Île-de-France,Hauts-de-Seine,92,41,Grands centres urbains,centres structurants d'équipements et de services
+59368,La Madeleine,22488,3,8360.0,50.654,3.074,Hauts-de-France,Nord,59,26,Grands centres urbains,centres structurants d'équipements et de services
+97408,La Possession,35245,119,297.0,-20.926,55.336,La Réunion,La Réunion,974,855,Centres urbains intermédiaires,
+85191,La Roche-sur-Yon,54952,88,626.0,46.67,-1.429,Pays de la Loire,Vendée,85,68,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+17300,La Rochelle,78535,32,2479.0,46.16,-1.151,Nouvelle-Aquitaine,Charente-Maritime,17,9,Grands centres urbains,centres majeurs d'équipements et de services
+83126,La Seyne-sur-Mer,62763,24,2664.0,43.102,5.881,Provence-Alpes-Côte d'Azur,Var,83,45,Grands centres urbains,centres structurants d'équipements et de services
+33529,La Teste-de-Buch,26556,178,149.0,44.631,-1.149,Nouvelle-Aquitaine,Gironde,33,26,Centres urbains intermédiaires,centres structurants d'équipements et de services
+83144,La Valette-du-Var,23955,15,1556.0,43.138,5.984,Provence-Alpes-Côte d'Azur,Var,83,207,Grands centres urbains,centres structurants d'équipements et de services
+77243,Lagny-sur-Marne,21191,6,3660.0,48.878,2.706,Île-de-France,Seine-et-Marne,77,71,Grands centres urbains,centres structurants d'équipements et de services
+59328,Lambersart,27121,6,4475.0,50.647,3.021,Hauts-de-France,Nord,59,22,Grands centres urbains,centres structurants d'équipements et de services
+56098,Lanester,23026,16,1419.0,47.764,-3.347,Bretagne,Morbihan,56,18,Grands centres urbains,centres structurants d'équipements et de services
+22113,Lannion,20344,48,425.0,48.732,-3.459,Bretagne,Côtes-d'Armor,22,69,Petites villes,centres majeurs d'équipements et de services
+02408,Laon,24021,45,539.0,49.565,3.621,Hauts-de-France,Aisne,2,79,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+53130,Laval,49657,34,1447.0,48.071,-0.774,Pays de la Loire,Mayenne,53,82,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+93007,Le Blanc-Mesnil,58257,8,7175.0,48.939,2.464,Île-de-France,Seine-Saint-Denis,93,46,Grands centres urbains,centres structurants d'équipements et de services
+33069,Le Bouscat,24339,5,4618.0,44.865,-0.6,Nouvelle-Aquitaine,Gironde,33,15,Grands centres urbains,centres structurants d'équipements et de services
+06030,Le Cannet,41597,8,5416.0,43.577,7.019,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,102,Grands centres urbains,centres structurants d'équipements et de services
+78158,Le Chesnay-Rocquencourt,30924,4,7192.0,48.826,2.125,Île-de-France,Yvelines,78,141,Grands centres urbains,centres structurants d'équipements et de services
+71153,Le Creusot,20731,18,1148.0,46.805,4.428,Bourgogne-Franche-Comté,Saône-et-Loire,71,384,Centres urbains intermédiaires,centres structurants d'équipements et de services
+97113,Le Gosier,27184,45,598.0,16.206,-61.492,Guadeloupe,Guadeloupe,971,46,Ceintures urbaines,
+76322,Le Grand-Quevilly,25975,11,2355.0,49.407,1.052,Normandie,Seine-Maritime,76,23,Grands centres urbains,centres structurants d'équipements et de services
+76351,Le Havre,166058,55,3035.0,49.494,0.108,Normandie,Seine-Maritime,76,36,Grands centres urbains,centres majeurs d'équipements et de services
+94043,Le Kremlin-Bicêtre,24380,2,15729.0,48.812,2.357,Île-de-France,Val-de-Marne,94,81,Grands centres urbains,centres structurants d'équipements et de services
+97213,Le Lamentin,39641,68,584.0,14.615,-61.004,Martinique,Martinique,972,47,Grands centres urbains,
+72181,Le Mans,145004,53,2757.0,48.008,0.197,Pays de la Loire,Sarthe,72,65,Grands centres urbains,centres majeurs d'équipements et de services
+97117,Le Moule,22645,83,271.0,16.331,-61.344,Guadeloupe,Guadeloupe,971,33,Petites villes,
+77285,Le Mée-sur-Seine,20207,6,3641.0,48.538,2.634,Île-de-France,Seine-et-Marne,77,68,Grands centres urbains,centres intermédiaires d'équipements et de services
+94058,Le Perreux-sur-Marne,34213,4,8640.0,48.841,2.508,Île-de-France,Val-de-Marne,94,46,Grands centres urbains,centres structurants d'équipements et de services
+76498,Le Petit-Quevilly,21782,4,4996.0,49.43,1.053,Normandie,Seine-Maritime,76,15,Grands centres urbains,centres structurants d'équipements et de services
+92060,Le Plessis-Robinson,29228,3,8571.0,48.782,2.262,Île-de-France,Hauts-de-Seine,92,150,Grands centres urbains,centres structurants d'équipements et de services
+94059,Le Plessis-Trévise,20218,4,4648.0,48.809,2.573,Île-de-France,Val-de-Marne,94,105,Grands centres urbains,centres intermédiaires d'équipements et de services
+97407,Le Port,33336,16,2073.0,-20.935,55.29,La Réunion,La Réunion,974,34,Centres urbains intermédiaires,
+97222,Le Robert,21305,46,464.0,14.678,-60.939,Martinique,Martinique,972,84,Ceintures urbaines,
+97422,Le Tampon,81943,181,453.0,-21.278,55.515,La Réunion,La Réunion,974,1282,Centres urbains intermédiaires,
+62498,Lens,32618,12,2790.0,50.429,2.832,Hauts-de-France,Pas-de-Calais,62,45,Grands centres urbains,centres majeurs d'équipements et de services
+97101,Les Abymes,52118,70,744.0,16.271,-61.505,Guadeloupe,Guadeloupe,971,25,Centres urbains intermédiaires,
+93045,Les Lilas,23469,1,18775.0,48.879,2.416,Île-de-France,Seine-Saint-Denis,93,117,Grands centres urbains,centres structurants d'équipements et de services
+78440,Les Mureaux,33977,12,2745.0,48.994,1.909,Île-de-France,Yvelines,78,29,Centres urbains intermédiaires,centres structurants d'équipements et de services
+93057,Les Pavillons-sous-Bois,24165,3,8247.0,48.903,2.507,Île-de-France,Seine-Saint-Denis,93,56,Grands centres urbains,centres structurants d'équipements et de services
+13071,Les Pennes-Mirabeau,22161,34,657.0,43.4,5.34,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,185,Ceintures urbaines,centres structurants d'équipements et de services
+85194,Les Sables-d'Olonne,48402,9,5563.0,46.497,-1.784,Pays de la Loire,Vendée,85,8,Petites villes,centres structurants d'équipements et de services
+91692,Les Ulis,25253,5,4651.0,48.681,2.17,Île-de-France,Essonne,91,154,Grands centres urbains,centres structurants d'équipements et de services
+92044,Levallois-Perret,68009,2,28220.0,48.893,2.288,Île-de-France,Hauts-de-Seine,92,30,Grands centres urbains,centres structurants d'équipements et de services
+33243,Libourne,24557,21,1187.0,44.914,-0.245,Nouvelle-Aquitaine,Gironde,33,10,Centres urbains intermédiaires,centres structurants d'équipements et de services
+59350,Lille,236710,35,6765.0,50.63,3.071,Hauts-de-France,Nord,59,27,Grands centres urbains,centres majeurs d'équipements et de services
+94044,Limeil-Brévannes,27999,7,4017.0,48.749,2.48,Île-de-France,Val-de-Marne,94,67,Grands centres urbains,centres intermédiaires d'équipements et de services
+87085,Limoges,129760,80,1628.0,45.826,1.26,Nouvelle-Aquitaine,Haute-Vienne,87,313,Grands centres urbains,centres majeurs d'équipements et de services
+67267,Lingolsheim,20266,6,3562.0,48.556,7.682,Grand Est,Bas-Rhin,67,144,Grands centres urbains,centres intermédiaires d'équipements et de services
+93046,Livry-Gargan,46028,7,6254.0,48.919,2.536,Île-de-France,Seine-Saint-Denis,93,69,Grands centres urbains,centres structurants d'équipements et de services
+62510,Liévin,30149,13,2341.0,50.421,2.785,Hauts-de-France,Pas-de-Calais,62,57,Grands centres urbains,centres structurants d'équipements et de services
+91345,Longjumeau,20620,5,4243.0,48.694,2.296,Île-de-France,Essonne,91,60,Grands centres urbains,centres structurants d'équipements et de services
+59360,Loos,23013,7,3335.0,50.615,3.015,Hauts-de-France,Nord,59,30,Grands centres urbains,centres structurants d'équipements et de services
+56121,Lorient,57846,15,3901.0,47.748,-3.366,Bretagne,Morbihan,56,18,Grands centres urbains,centres majeurs d'équipements et de services
+33249,Lormont,23291,8,2990.0,44.88,-0.523,Nouvelle-Aquitaine,Gironde,33,39,Grands centres urbains,centres structurants d'équipements et de services
+34145,Lunel,26185,24,1079.0,43.679,4.132,Occitanie,Hérault,34,12,Centres urbains intermédiaires,centres structurants d'équipements et de services
+69123,Lyon,522250,48,10903.0,45.764,4.836,Auvergne-Rhône-Alpes,Rhône,69,237,Grands centres urbains,centres majeurs d'équipements et de services
+94046,Maisons-Alfort,58068,5,10834.0,48.801,2.431,Île-de-France,Val-de-Marne,94,37,Grands centres urbains,centres structurants d'équipements et de services
+78358,Maisons-Laffitte,23080,7,3330.0,48.946,2.145,Île-de-France,Yvelines,78,34,Grands centres urbains,centres structurants d'équipements et de services
+92046,Malakoff,30292,2,14634.0,48.821,2.302,Île-de-France,Hauts-de-Seine,92,73,Grands centres urbains,centres structurants d'équipements et de services
+97611,Mamoudzou,71437,42,1687.0,-12.781,45.232,Mayotte,Mayotte,976,161,Grands centres urbains,
+06079,Mandelieu-la-Napoule,21561,32,672.0,43.543,6.932,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,104,Grands centres urbains,centres structurants d'équipements et de services
+04112,Manosque,22926,57,404.0,43.834,5.782,Provence-Alpes-Côte d'Azur,Alpes-de-Haute-Provence,4,407,Centres urbains intermédiaires,centres structurants d'équipements et de services
+78361,Mantes-la-Jolie,44539,9,4693.0,48.989,1.715,Île-de-France,Yvelines,78,26,Grands centres urbains,centres structurants d'équipements et de services
+78362,Mantes-la-Ville,21376,6,3426.0,48.978,1.714,Île-de-France,Yvelines,78,53,Grands centres urbains,centres intermédiaires d'équipements et de services
+59378,Marcq-en-Barœul,39356,14,2809.0,50.673,3.094,Hauts-de-France,Nord,59,25,Grands centres urbains,centres structurants d'équipements et de services
+13054,Marignane,33003,24,1401.0,43.417,5.216,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,14,Centres urbains intermédiaires,centres structurants d'équipements et de services
+13055,Marseille,873076,241,3629.0,43.296,5.37,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,20,Grands centres urbains,centres majeurs d'équipements et de services
+13056,Martigues,48568,74,652.0,43.406,5.048,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,48,Grands centres urbains,centres structurants d'équipements et de services
+91377,Massy,50962,9,5421.0,48.731,2.271,Île-de-France,Essonne,91,81,Grands centres urbains,centres structurants d'équipements et de services
+97307,Matoury,34810,149,234.0,4.85,-52.331,Guyane,Guyane,973,9,Ceintures urbaines,
+59392,Maubeuge,29066,19,1532.0,50.28,3.967,Hauts-de-France,Nord,59,144,Centres urbains intermédiaires,centres structurants d'équipements et de services
+77284,Meaux,55616,15,3652.0,48.958,2.878,Île-de-France,Seine-et-Marne,77,58,Grands centres urbains,centres majeurs d'équipements et de services
+77288,Melun,42367,8,5296.0,48.54,2.661,Île-de-France,Seine-et-Marne,77,63,Grands centres urbains,centres majeurs d'équipements et de services
+06083,Menton,30412,14,2139.0,43.776,7.503,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,175,Centres urbains intermédiaires,centres structurants d'équipements et de services
+57463,Metz,120874,42,2898.0,49.12,6.176,Grand Est,Moselle,57,190,Grands centres urbains,centres majeurs d'équipements et de services
+92048,Meudon,46342,10,4657.0,48.813,2.239,Île-de-France,Hauts-de-Seine,92,136,Grands centres urbains,centres structurants d'équipements et de services
+69282,Meyzieu,35882,24,1525.0,45.765,5.005,Auvergne-Rhône-Alpes,Rhône,69,196,Grands centres urbains,centres structurants d'équipements et de services
+12145,Millau,21712,170,128.0,44.101,3.078,Occitanie,Aveyron,12,688,Centres urbains intermédiaires,centres structurants d'équipements et de services
+13063,Miramas,26405,26,1025.0,43.58,5.001,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,56,Centres urbains intermédiaires,centres structurants d'équipements et de services
+77294,Mitry-Mory,20627,30,689.0,48.984,2.619,Île-de-France,Seine-et-Marne,77,76,Grands centres urbains,centres structurants d'équipements et de services
+59410,Mons-en-Barœul,21467,3,7428.0,50.643,3.11,Hauts-de-France,Nord,59,35,Grands centres urbains,centres intermédiaires d'équipements et de services
+76451,Mont-Saint-Aignan,20066,8,2530.0,49.46,1.08,Normandie,Seine-Maritime,76,132,Grands centres urbains,centres structurants d'équipements et de services
+40192,Mont-de-Marsan,30674,37,838.0,43.891,-0.501,Nouvelle-Aquitaine,Landes,40,58,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+85146,Montaigu-Vendée,20605,3,6756.0,46.974,-1.314,Pays de la Loire,Vendée,85,41,Petites villes,centres structurants d'équipements et de services
+82121,Montauban,61919,136,456.0,44.016,1.353,Occitanie,Tarn-et-Garonne,82,102,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+25388,Montbéliard,25573,15,1714.0,47.51,6.798,Bourgogne-Franche-Comté,Doubs,25,353,Grands centres urbains,centres majeurs d'équipements et de services
+77305,Montereau-Fault-Yonne,22259,9,2460.0,48.385,2.956,Île-de-France,Seine-et-Marne,77,66,Centres urbains intermédiaires,centres structurants d'équipements et de services
+93047,Montfermeil,27980,5,5172.0,48.902,2.571,Île-de-France,Seine-Saint-Denis,93,102,Grands centres urbains,centres structurants d'équipements et de services
+91421,Montgeron,23800,11,2133.0,48.704,2.461,Île-de-France,Essonne,91,70,Grands centres urbains,centres structurants d'équipements et de services
+78423,Montigny-le-Bretonneux,31777,11,2962.0,48.77,2.038,Île-de-France,Yvelines,78,163,Grands centres urbains,centres structurants d'équipements et de services
+95424,Montigny-lès-Cormeilles,22603,4,5595.0,48.988,2.188,Île-de-France,Val-d'Oise,95,83,Grands centres urbains,centres structurants d'équipements et de services
+57480,Montigny-lès-Metz,21854,7,3262.0,49.1,6.153,Grand Est,Moselle,57,177,Grands centres urbains,centres structurants d'équipements et de services
+03185,Montluçon,33342,21,1610.0,46.34,2.607,Auvergne-Rhône-Alpes,Allier,3,235,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+95428,Montmorency,21870,5,4206.0,48.99,2.321,Île-de-France,Val-d'Oise,95,118,Grands centres urbains,centres structurants d'équipements et de services
+34172,Montpellier,302454,57,5296.0,43.598,3.897,Occitanie,Hérault,34,45,Grands centres urbains,centres majeurs d'équipements et de services
+93048,Montreuil,111455,9,12523.0,48.862,2.441,Île-de-France,Seine-Saint-Denis,93,91,Grands centres urbains,centres structurants d'équipements et de services
+92049,Montrouge,47657,2,23023.0,48.819,2.32,Île-de-France,Hauts-de-Seine,92,75,Grands centres urbains,centres structurants d'équipements et de services
+26198,Montélimar,40399,46,871.0,44.557,4.75,Auvergne-Rhône-Alpes,Drôme,26,93,Centres urbains intermédiaires,centres structurants d'équipements et de services
+91434,Morsang-sur-Orge,20785,4,4745.0,48.662,2.346,Île-de-France,Essonne,91,73,Grands centres urbains,centres intermédiaires d'équipements et de services
+68224,Mulhouse,106341,22,4760.0,47.75,7.336,Grand Est,Haut-Rhin,68,250,Grands centres urbains,centres majeurs d'équipements et de services
+31395,Muret,25060,58,429.0,43.462,1.331,Occitanie,Haute-Garonne,31,189,Centres urbains intermédiaires,centres structurants d'équipements et de services
+71270,Mâcon,34448,27,1274.0,46.303,4.833,Bourgogne-Franche-Comté,Saône-et-Loire,71,210,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+33281,Mérignac,75729,48,1583.0,44.845,-0.656,Nouvelle-Aquitaine,Gironde,33,42,Grands centres urbains,centres structurants d'équipements et de services
+54395,Nancy,104260,15,6979.0,48.693,6.184,Grand Est,Meurthe-et-Moselle,54,231,Grands centres urbains,centres majeurs d'équipements et de services
+92050,Nanterre,97351,12,7960.0,48.892,2.207,Île-de-France,Hauts-de-Seine,92,43,Grands centres urbains,centres majeurs d'équipements et de services
+44109,Nantes,323204,66,4914.0,47.218,-1.554,Pays de la Loire,Loire-Atlantique,44,18,Grands centres urbains,centres majeurs d'équipements et de services
+11262,Narbonne,56395,175,323.0,43.184,3.004,Occitanie,Aude,11,54,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+93049,Neuilly-Plaisance,21415,3,6280.0,48.861,2.506,Île-de-France,Seine-Saint-Denis,93,65,Grands centres urbains,centres structurants d'équipements et de services
+93050,Neuilly-sur-Marne,37531,7,5385.0,48.857,2.528,Île-de-France,Seine-Saint-Denis,93,43,Grands centres urbains,centres structurants d'équipements et de services
+92051,Neuilly-sur-Seine,59267,4,15975.0,48.885,2.27,Île-de-France,Hauts-de-Seine,92,32,Grands centres urbains,centres structurants d'équipements et de services
+58194,Nevers,32830,17,1892.0,46.988,3.158,Bourgogne-Franche-Comté,Nièvre,58,190,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+06088,Nice,348085,74,4710.0,43.696,7.272,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,115,Grands centres urbains,centres majeurs d'équipements et de services
+79191,Niort,59309,68,868.0,46.324,-0.465,Nouvelle-Aquitaine,Deux-Sèvres,79,33,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+94052,Nogent-sur-Marne,33472,3,11997.0,48.839,2.492,Île-de-France,Val-de-Marne,94,63,Grands centres urbains,centres structurants d'équipements et de services
+60463,Nogent-sur-Oise,21382,7,2893.0,49.275,2.467,Hauts-de-France,Oise,60,47,Grands centres urbains,centres structurants d'équipements et de services
+93051,Noisy-le-Grand,70374,13,5397.0,48.849,2.552,Île-de-France,Seine-Saint-Denis,93,87,Grands centres urbains,centres structurants d'équipements et de services
+93053,Noisy-le-Sec,46094,5,9164.0,48.89,2.452,Île-de-France,Seine-Saint-Denis,93,69,Grands centres urbains,centres structurants d'équipements et de services
+30189,Nîmes,148104,161,919.0,43.837,4.36,Occitanie,Gard,30,102,Grands centres urbains,centres majeurs d'équipements et de services
+45232,Olivet,22855,23,980.0,47.865,1.897,Centre-Val de Loire,Loiret,45,102,Grands centres urbains,centres structurants d'équipements et de services
+84087,Orange,28949,74,389.0,44.138,4.807,Provence-Alpes-Côte d'Azur,Vaucluse,84,48,Centres urbains intermédiaires,centres structurants d'équipements et de services
+94054,Orly,24482,7,3670.0,48.743,2.401,Île-de-France,Val-de-Marne,94,66,Grands centres urbains,centres structurants d'équipements et de services
+45234,Orléans,116617,28,4230.0,47.903,1.909,Centre-Val de Loire,Loiret,45,106,Grands centres urbains,centres majeurs d'équipements et de services
+44114,Orvault,27872,28,1003.0,47.271,-1.624,Pays de la Loire,Loire-Atlantique,44,50,Grands centres urbains,centres structurants d'équipements et de services
+69149,Oullins-Pierre-Bénite,27113,4,6219.0,45.714,4.807,Auvergne-Rhône-Alpes,Rhône,69,194,Grands centres urbains,centres structurants d'équipements et de services
+01283,Oyonnax,22277,36,620.0,46.258,5.656,Auvergne-Rhône-Alpes,Ain,1,667,Centres urbains intermédiaires,centres structurants d'équipements et de services
+77350,Ozoir-la-Ferrière,20692,16,1321.0,48.762,2.672,Île-de-France,Seine-et-Marne,77,108,Centres urbains intermédiaires,centres structurants d'équipements et de services
+91477,Palaiseau,34893,12,2987.0,48.715,2.246,Île-de-France,Essonne,91,118,Grands centres urbains,centres structurants d'équipements et de services
+93055,Pantin,60800,5,12063.0,48.897,2.401,Île-de-France,Seine-Saint-Denis,93,53,Grands centres urbains,centres structurants d'équipements et de services
+75056,Paris,2133111,105,20238.0,48.857,2.352,Île-de-France,Paris,75,35,Grands centres urbains,centres majeurs d'équipements et de services
+64445,Pau,77066,32,2445.0,43.295,-0.371,Nouvelle-Aquitaine,Pyrénées-Atlantiques,64,211,Grands centres urbains,centres majeurs d'équipements et de services
+66136,Perpignan,119656,68,1752.0,42.699,2.894,Occitanie,Pyrénées-Orientales,66,38,Grands centres urbains,centres majeurs d'équipements et de services
+84089,Pertuis,20012,59,338.0,43.695,5.503,Provence-Alpes-Côte d'Azur,Vaucluse,84,237,Centres urbains intermédiaires,centres structurants d'équipements et de services
+33318,Pessac,66760,39,1728.0,44.806,-0.63,Nouvelle-Aquitaine,Gironde,33,45,Grands centres urbains,centres structurants d'équipements et de services
+97118,Petit-Bourg,24272,131,185.0,16.192,-61.59,Guadeloupe,Guadeloupe,971,288,Ceintures urbaines,
+93059,Pierrefitte-sur-Seine,32379,3,9385.0,48.964,2.36,Île-de-France,Seine-Saint-Denis,93,50,Grands centres urbains,centres intermédiaires d'équipements et de services
+78490,Plaisir,31375,18,1779.0,48.817,1.947,Île-de-France,Yvelines,78,141,Grands centres urbains,centres structurants d'équipements et de services
+78498,Poissy,40016,13,3097.0,48.927,2.043,Île-de-France,Yvelines,78,71,Grands centres urbains,centres structurants d'équipements et de services
+86194,Poitiers,90240,42,2128.0,46.58,0.341,Nouvelle-Aquitaine,Vienne,86,111,Grands centres urbains,centres majeurs d'équipements et de services
+77373,Pontault-Combault,38258,14,2815.0,48.802,2.608,Île-de-France,Seine-et-Marne,77,104,Grands centres urbains,centres structurants d'équipements et de services
+95500,Pontoise,31327,7,4321.0,49.051,2.101,Île-de-France,Val-d'Oise,95,51,Grands centres urbains,centres majeurs d'équipements et de services
+92062,Puteaux,43672,3,13733.0,48.884,2.238,Île-de-France,Hauts-de-Seine,92,45,Grands centres urbains,centres structurants d'équipements et de services
+24322,Périgueux,29516,10,2911.0,45.184,0.716,Nouvelle-Aquitaine,Dordogne,24,110,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+29232,Quimper,63642,84,755.0,47.996,-4.102,Bretagne,Finistère,29,51,Grands centres urbains,centres majeurs d'équipements et de services
+78517,Rambouillet,26816,36,747.0,48.645,1.82,Île-de-France,Yvelines,78,164,Centres urbains intermédiaires,centres structurants d'équipements et de services
+51454,Reims,179380,47,3823.0,49.258,4.031,Grand Est,Marne,51,93,Grands centres urbains,centres majeurs d'équipements et de services
+97309,Remire-Montjoly,27274,51,533.0,4.905,-52.276,Guyane,Guyane,973,27,Ceintures urbaines,
+35238,Rennes,225081,50,4470.0,48.112,-1.68,Bretagne,Ille-et-Vilaine,35,38,Grands centres urbains,centres majeurs d'équipements et de services
+44143,Rezé,42998,16,2762.0,47.191,-1.569,Pays de la Loire,Loire-Atlantique,44,22,Grands centres urbains,centres structurants d'équipements et de services
+69286,Rillieux-la-Pape,31247,15,2148.0,45.819,4.898,Auvergne-Rhône-Alpes,Rhône,69,266,Grands centres urbains,centres structurants d'équipements et de services
+91521,Ris-Orangis,29825,8,3555.0,48.654,2.416,Île-de-France,Essonne,91,67,Grands centres urbains,centres structurants d'équipements et de services
+42187,Roanne,34762,16,2163.0,46.034,4.073,Auvergne-Rhône-Alpes,Loire,42,275,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+17299,Rochefort,23092,22,1048.0,45.937,-0.962,Nouvelle-Aquitaine,Charente-Maritime,17,5,Centres urbains intermédiaires,centres structurants d'équipements et de services
+12202,Rodez,24207,11,2142.0,44.349,2.576,Occitanie,Aveyron,12,565,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+77390,Roissy-en-Brie,23061,14,1683.0,48.791,2.654,Île-de-France,Seine-et-Marne,77,109,Grands centres urbains,centres structurants d'équipements et de services
+93063,Romainville,33266,3,9642.0,48.886,2.435,Île-de-France,Seine-Saint-Denis,93,101,Grands centres urbains,centres intermédiaires d'équipements et de services
+26281,Romans-sur-Isère,32911,33,985.0,45.045,5.052,Auvergne-Rhône-Alpes,Drôme,26,180,Centres urbains intermédiaires,centres structurants d'équipements et de services
+93064,Rosny-sous-Bois,45655,6,7712.0,48.872,2.488,Île-de-France,Seine-Saint-Denis,93,78,Grands centres urbains,centres structurants d'équipements et de services
+59512,Roubaix,98892,13,7475.0,50.691,3.174,Hauts-de-France,Nord,59,31,Grands centres urbains,centres majeurs d'équipements et de services
+76540,Rouen,114083,21,5326.0,49.444,1.1,Normandie,Seine-Maritime,76,36,Grands centres urbains,centres majeurs d'équipements et de services
+92063,Rueil-Malmaison,78186,15,5381.0,48.878,2.181,Île-de-France,Hauts-de-Seine,92,77,Grands centres urbains,centres structurants d'équipements et de services
+97409,Saint-André,57150,54,1053.0,-20.96,55.65,La Réunion,La Réunion,974,173,Centres urbains intermédiaires,
+97410,Saint-Benoît,37023,230,161.0,-21.034,55.713,La Réunion,La Réunion,974,768,Ceintures urbaines,
+22278,Saint-Brieuc,44224,19,2278.0,48.514,-2.764,Bretagne,Côtes-d'Armor,22,82,Grands centres urbains,centres majeurs d'équipements et de services
+42207,Saint-Chamond,35068,55,636.0,45.476,4.513,Auvergne-Rhône-Alpes,Loire,42,520,Centres urbains intermédiaires,centres structurants d'équipements et de services
+92064,Saint-Cloud,29727,8,3958.0,48.844,2.219,Île-de-France,Hauts-de-Seine,92,93,Grands centres urbains,centres structurants d'équipements et de services
+78545,Saint-Cyr-l'École,20971,5,4104.0,48.8,2.067,Île-de-France,Yvelines,78,130,Grands centres urbains,centres structurants d'équipements et de services
+97411,Saint-Denis,154765,142,1094.0,-20.879,55.448,La Réunion,La Réunion,974,714,Grands centres urbains,
+93066,Saint-Denis,113942,12,9204.0,48.936,2.358,Île-de-France,Seine-Saint-Denis,93,34,Grands centres urbains,centres majeurs d'équipements et de services
+52448,Saint-Dizier,23068,48,477.0,48.638,4.948,Grand Est,Haute-Marne,52,156,Centres urbains intermédiaires,centres structurants d'équipements et de services
+69204,Saint-Genis-Laval,20929,13,1619.0,45.698,4.794,Auvergne-Rhône-Alpes,Rhône,69,237,Grands centres urbains,centres structurants d'équipements et de services
+78551,Saint-Germain-en-Laye,44380,49,898.0,48.899,2.094,Île-de-France,Yvelines,78,54,Grands centres urbains,centres majeurs d'équipements et de services
+95555,Saint-Gratien,20866,3,7643.0,48.971,2.283,Île-de-France,Val-d'Oise,95,47,Grands centres urbains,centres structurants d'équipements et de services
+44162,Saint-Herblain,49537,30,1656.0,47.211,-1.648,Pays de la Loire,Loire-Atlantique,44,35,Grands centres urbains,centres structurants d'équipements et de services
+45284,Saint-Jean-de-Braye,21700,14,1583.0,47.912,1.971,Centre-Val de Loire,Loiret,45,110,Grands centres urbains,centres intermédiaires d'équipements et de services
+97412,Saint-Joseph,38807,178,218.0,-21.379,55.619,La Réunion,La Réunion,974,963,Ceintures urbaines,
+97311,Saint-Laurent-du-Maroni,50250,4151,12.0,5.504,-54.029,Guyane,Guyane,973,96,Centres urbains intermédiaires,
+06123,Saint-Laurent-du-Var,30941,9,3299.0,43.675,7.192,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,64,Grands centres urbains,centres structurants d'équipements et de services
+97413,Saint-Leu,34893,118,295.0,-21.166,55.287,La Réunion,La Réunion,974,1017,Ceintures urbaines,
+97414,Saint-Louis,53935,99,546.0,-21.287,55.409,La Réunion,La Réunion,974,666,Grands centres urbains,
+68297,Saint-Louis,22698,17,1339.0,47.586,7.561,Grand Est,Haut-Rhin,68,256,Grands centres urbains,centres structurants d'équipements et de services
+35288,Saint-Malo,47323,37,1296.0,48.652,-2.023,Bretagne,Ille-et-Vilaine,35,24,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+94067,Saint-Mandé,21195,1,23550.0,48.843,2.419,Île-de-France,Val-de-Marne,94,50,Grands centres urbains,centres structurants d'équipements et de services
+38421,Saint-Martin-d'Hères,38454,9,4061.0,45.184,5.755,Auvergne-Rhône-Alpes,Isère,38,254,Grands centres urbains,centres structurants d'équipements et de services
+94068,Saint-Maur-des-Fossés,75441,11,6718.0,48.803,2.485,Île-de-France,Val-de-Marne,94,39,Grands centres urbains,centres structurants d'équipements et de services
+91570,Saint-Michel-sur-Orge,21437,5,4030.0,48.63,2.303,Île-de-France,Essonne,91,66,Grands centres urbains,centres structurants d'équipements et de services
+33449,Saint-Médard-en-Jalles,32538,85,383.0,44.896,-0.717,Nouvelle-Aquitaine,Gironde,33,38,Grands centres urbains,centres structurants d'équipements et de services
+44184,Saint-Nazaire,72057,48,1497.0,47.273,-2.214,Pays de la Loire,Loire-Atlantique,44,16,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+95572,Saint-Ouen-l'Aumône,25023,14,1786.0,49.044,2.106,Île-de-France,Val-d'Oise,95,42,Grands centres urbains,centres structurants d'équipements et de services
+93070,Saint-Ouen-sur-Seine,53207,4,12490.0,48.912,2.334,Île-de-France,Seine-Saint-Denis,93,35,Grands centres urbains,centres structurants d'équipements et de services
+97415,Saint-Paul,105240,240,438.0,-21.01,55.27,La Réunion,La Réunion,974,791,Centres urbains intermédiaires,
+97416,Saint-Pierre,84077,96,873.0,-21.342,55.478,La Réunion,La Réunion,974,295,Centres urbains intermédiaires,
+69290,Saint-Priest,48822,30,1646.0,45.695,4.936,Auvergne-Rhône-Alpes,Rhône,69,215,Grands centres urbains,centres structurants d'équipements et de services
+02691,Saint-Quentin,52958,23,2323.0,49.847,3.287,Hauts-de-France,Aisne,2,92,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+83118,Saint-Raphaël,35950,91,395.0,43.425,6.768,Provence-Alpes-Côte d'Azur,Var,83,126,Grands centres urbains,centres structurants d'équipements et de services
+44190,Saint-Sébastien-sur-Loire,28283,12,2411.0,47.206,-1.502,Pays de la Loire,Loire-Atlantique,44,16,Grands centres urbains,centres structurants d'équipements et de services
+42218,Saint-Étienne,172718,80,2159.0,45.44,4.387,Auvergne-Rhône-Alpes,Loire,42,633,Grands centres urbains,centres majeurs d'équipements et de services
+76575,Saint-Étienne-du-Rouvray,28508,18,1563.0,49.38,1.108,Normandie,Seine-Maritime,76,37,Grands centres urbains,centres structurants d'équipements et de services
+97128,Sainte-Anne,24281,81,301.0,16.226,-61.386,Guadeloupe,Guadeloupe,971,50,Petites villes,
+69202,Sainte-Foy-lès-Lyon,21858,7,3196.0,45.736,4.8,Auvergne-Rhône-Alpes,Rhône,69,263,Grands centres urbains,centres structurants d'équipements et de services
+91549,Sainte-Geneviève-des-Bois,35846,9,3830.0,48.641,2.327,Île-de-France,Essonne,91,74,Grands centres urbains,centres structurants d'équipements et de services
+97418,Sainte-Marie,34344,89,387.0,-20.897,55.549,La Réunion,La Réunion,974,619,Ceintures urbaines,
+97420,Sainte-Suzanne,24293,58,420.0,-20.906,55.608,La Réunion,La Réunion,974,349,Ceintures urbaines,
+17415,Saintes,25518,46,556.0,45.744,-0.634,Nouvelle-Aquitaine,Charente-Maritime,17,32,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+13103,Salon-de-Provence,44731,71,634.0,43.641,5.099,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,98,Centres urbains intermédiaires,centres structurants d'équipements et de services
+95582,Sannois,26768,5,5588.0,48.972,2.256,Île-de-France,Val-d'Oise,95,75,Grands centres urbains,centres structurants d'équipements et de services
+95585,Sarcelles,58424,8,6964.0,48.997,2.378,Île-de-France,Val-d'Oise,95,65,Grands centres urbains,centres structurants d'équipements et de services
+57631,Sarreguemines,20624,30,688.0,49.11,7.07,Grand Est,Moselle,57,235,Petites villes,centres majeurs d'équipements et de services
+78586,Sartrouville,51220,8,6062.0,48.941,2.158,Île-de-France,Yvelines,78,44,Grands centres urbains,centres structurants d'équipements et de services
+49328,Saumur,26215,66,394.0,47.26,-0.076,Pays de la Loire,Maine-et-Loire,49,43,Petites villes,centres structurants d'équipements et de services
+77445,Savigny-le-Temple,30510,12,2526.0,48.596,2.581,Île-de-France,Seine-et-Marne,77,83,Centres urbains intermédiaires,centres structurants d'équipements et de services
+91589,Savigny-sur-Orge,37371,7,5339.0,48.68,2.346,Île-de-France,Essonne,91,74,Grands centres urbains,centres structurants d'équipements et de services
+92071,Sceaux,20488,4,5691.0,48.78,2.288,Île-de-France,Hauts-de-Seine,92,78,Grands centres urbains,centres structurants d'équipements et de services
+67447,Schiltigheim,34129,8,4473.0,48.605,7.749,Grand Est,Bas-Rhin,67,141,Grands centres urbains,centres structurants d'équipements et de services
+89387,Sens,27034,22,1238.0,48.199,3.283,Bourgogne-Franche-Comté,Yonne,89,83,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+93071,Sevran,51845,7,7102.0,48.94,2.526,Île-de-France,Seine-Saint-Denis,93,56,Grands centres urbains,centres structurants d'équipements et de services
+83129,Six-Fours-les-Plages,36203,27,1345.0,43.093,5.839,Provence-Alpes-Côte d'Azur,Var,83,60,Grands centres urbains,centres structurants d'équipements et de services
+02722,Soissons,28705,12,2328.0,49.384,3.329,Hauts-de-France,Aisne,2,49,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+76681,Sotteville-lès-Rouen,28965,7,3909.0,49.414,1.089,Normandie,Seine-Maritime,76,14,Grands centres urbains,centres structurants d'équipements et de services
+93072,Stains,40359,5,7488.0,48.955,2.382,Île-de-France,Seine-Saint-Denis,93,43,Grands centres urbains,centres structurants d'équipements et de services
+67482,Strasbourg,291313,78,3730.0,48.573,7.752,Grand Est,Bas-Rhin,67,139,Grands centres urbains,centres majeurs d'équipements et de services
+94071,Sucy-en-Brie,27622,10,2653.0,48.771,2.524,Île-de-France,Val-de-Marne,94,78,Grands centres urbains,centres structurants d'équipements et de services
+92073,Suresnes,49104,4,12956.0,48.871,2.225,Île-de-France,Hauts-de-Seine,92,72,Grands centres urbains,centres structurants d'équipements et de services
+34301,Sète,44712,42,1070.0,43.402,3.696,Occitanie,Hérault,34,7,Centres urbains intermédiaires,centres structurants d'équipements et de services
+49301,Sèvremoine,25806,28,934.0,47.124,-0.994,Pays de la Loire,Maine-et-Loire,49,96,Bourgs ruraux,centres intermédiaires d'équipements et de services
+92072,Sèvres,22618,4,5770.0,48.825,2.213,Île-de-France,Hauts-de-Seine,92,100,Grands centres urbains,centres structurants d'équipements et de services
+33522,Talence,45225,8,5455.0,44.808,-0.589,Nouvelle-Aquitaine,Gironde,33,21,Grands centres urbains,centres structurants d'équipements et de services
+65440,Tarbes,43955,15,2867.0,43.233,0.078,Occitanie,Hautes-Pyrénées,65,306,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+69244,Tassin-la-Demi-Lune,22676,8,2852.0,45.761,4.777,Auvergne-Rhône-Alpes,Rhône,69,240,Grands centres urbains,centres structurants d'équipements et de services
+95607,Taverny,27025,10,2596.0,49.026,2.226,Île-de-France,Val-d'Oise,95,102,Grands centres urbains,centres structurants d'équipements et de services
+94073,Thiais,31097,6,4829.0,48.764,2.391,Île-de-France,Val-de-Marne,94,76,Grands centres urbains,centres structurants d'équipements et de services
+57672,Thionville,42163,50,846.0,49.358,6.168,Grand Est,Moselle,57,211,Centres urbains intermédiaires,centres structurants d'équipements et de services
+74281,Thonon-les-Bains,37027,16,2259.0,46.373,6.478,Auvergne-Rhône-Alpes,Haute-Savoie,74,427,Centres urbains intermédiaires,centres structurants d'équipements et de services
+77468,Torcy,22444,6,3655.0,48.849,2.652,Île-de-France,Seine-et-Marne,77,70,Grands centres urbains,centres structurants d'équipements et de services
+83137,Toulon,180452,44,4084.0,43.12,5.932,Provence-Alpes-Côte d'Azur,Var,83,126,Grands centres urbains,centres majeurs d'équipements et de services
+31555,Toulouse,504078,118,4269.0,43.605,1.444,Occitanie,Haute-Garonne,31,148,Grands centres urbains,centres majeurs d'équipements et de services
+59599,Tourcoing,99011,15,6518.0,50.724,3.161,Hauts-de-France,Nord,59,36,Grands centres urbains,centres majeurs d'équipements et de services
+31557,Tournefeuille,29439,18,1612.0,43.583,1.347,Occitanie,Haute-Garonne,31,164,Grands centres urbains,centres structurants d'équipements et de services
+37261,Tours,137658,33,4128.0,47.391,0.69,Centre-Val de Loire,Indre-et-Loire,37,71,Grands centres urbains,centres majeurs d'équipements et de services
+78621,Trappes,33717,14,2461.0,48.776,1.999,Île-de-France,Yvelines,78,166,Grands centres urbains,centres structurants d'équipements et de services
+93073,Tremblay-en-France,37271,23,1650.0,48.951,2.571,Île-de-France,Seine-Saint-Denis,93,81,Grands centres urbains,centres structurants d'équipements et de services
+10387,Troyes,62782,13,4689.0,48.298,4.074,Grand Est,Aube,10,109,Grands centres urbains,centres majeurs d'équipements et de services
+26362,Valence,64483,37,1753.0,44.933,4.892,Auvergne-Rhône-Alpes,Drôme,26,147,Grands centres urbains,centres majeurs d'équipements et de services
+59606,Valenciennes,42991,14,3086.0,50.358,3.524,Hauts-de-France,Nord,59,32,Grands centres urbains,centres majeurs d'équipements et de services
+06155,Vallauris,28025,13,2136.0,43.58,7.056,Provence-Alpes-Côte d'Azur,Alpes-Maritimes,6,132,Grands centres urbains,centres structurants d'équipements et de services
+54547,Vandœuvre-lès-Nancy,29537,9,3159.0,48.66,6.173,Grand Est,Meurthe-et-Moselle,54,306,Grands centres urbains,centres majeurs d'équipements et de services
+56260,Vannes,54420,33,1638.0,47.658,-2.761,Bretagne,Morbihan,56,21,Grands centres urbains,centres majeurs d'équipements et de services
+92075,Vanves,28014,2,18074.0,48.821,2.29,Île-de-France,Hauts-de-Seine,92,61,Grands centres urbains,centres structurants d'équipements et de services
+69256,Vaulx-en-Velin,52139,21,2480.0,45.779,4.92,Auvergne-Rhône-Alpes,Rhône,69,174,Grands centres urbains,centres structurants d'équipements et de services
+27681,Vernon,24543,34,715.0,49.093,1.486,Normandie,Eure,27,94,Centres urbains intermédiaires,centres structurants d'équipements et de services
+78646,Versailles,83587,26,3207.0,48.801,2.13,Île-de-France,Yvelines,78,136,Grands centres urbains,centres majeurs d'équipements et de services
+44215,Vertou,26002,38,681.0,47.168,-1.473,Pays de la Loire,Loire-Atlantique,44,28,Ceintures urbaines,centres structurants d'équipements et de services
+03310,Vichy,25789,6,4401.0,46.124,3.428,Auvergne-Rhône-Alpes,Allier,3,261,Centres urbains intermédiaires,centres structurants d'équipements et de services
+38544,Vienne,31051,23,1374.0,45.526,4.875,Auvergne-Rhône-Alpes,Isère,38,251,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+18279,Vierzon,25348,75,339.0,47.221,2.07,Centre-Val de Loire,Cher,18,140,Centres urbains intermédiaires,centres structurants d'équipements et de services
+91657,Vigneux-sur-Seine,31050,9,3462.0,48.7,2.417,Île-de-France,Essonne,91,45,Grands centres urbains,centres intermédiaires d'équipements et de services
+69264,Villefranche-sur-Saône,35913,9,3800.0,45.989,4.715,Auvergne-Rhône-Alpes,Rhône,69,181,Centres urbains intermédiaires,centres structurants d'équipements et de services
+94076,Villejuif,57753,5,10938.0,48.792,2.363,Île-de-France,Val-de-Marne,94,101,Grands centres urbains,centres structurants d'équipements et de services
+93077,Villemomble,30332,4,7527.0,48.882,2.508,Île-de-France,Seine-Saint-Denis,93,64,Grands centres urbains,centres structurants d'équipements et de services
+33550,Villenave-d'Ornon,40500,21,1908.0,44.783,-0.572,Nouvelle-Aquitaine,Gironde,33,14,Grands centres urbains,centres structurants d'équipements et de services
+94078,Villeneuve-Saint-Georges,35492,8,4414.0,48.731,2.448,Île-de-France,Val-de-Marne,94,47,Grands centres urbains,centres structurants d'équipements et de services
+59009,Villeneuve-d'Ascq,62067,28,2253.0,50.62,3.132,Hauts-de-France,Nord,59,28,Grands centres urbains,centres structurants d'équipements et de services
+92078,Villeneuve-la-Garenne,25371,3,7953.0,48.936,2.333,Île-de-France,Hauts-de-Seine,92,27,Grands centres urbains,centres structurants d'équipements et de services
+94077,Villeneuve-le-Roi,21129,8,2492.0,48.735,2.408,Île-de-France,Val-de-Marne,94,60,Grands centres urbains,centres structurants d'équipements et de services
+47323,Villeneuve-sur-Lot,21629,81,266.0,44.41,0.706,Nouvelle-Aquitaine,Lot-et-Garonne,47,102,Centres urbains intermédiaires,centres structurants d'équipements et de services
+77514,Villeparisis,26822,8,3232.0,48.94,2.617,Île-de-France,Seine-et-Marne,77,71,Grands centres urbains,centres structurants d'équipements et de services
+93078,Villepinte,38725,10,3716.0,48.964,2.534,Île-de-France,Seine-Saint-Denis,93,65,Grands centres urbains,centres structurants d'équipements et de services
+69266,Villeurbanne,156928,15,10603.0,45.766,4.88,Auvergne-Rhône-Alpes,Rhône,69,175,Grands centres urbains,centres majeurs d'équipements et de services
+95680,Villiers-le-Bel,28836,7,3956.0,49.008,2.388,Île-de-France,Val-d'Oise,95,87,Grands centres urbains,centres structurants d'équipements et de services
+94079,Villiers-sur-Marne,30669,4,7099.0,48.826,2.541,Île-de-France,Val-de-Marne,94,89,Grands centres urbains,centres structurants d'équipements et de services
+94080,Vincennes,48798,2,25549.0,48.848,2.44,Île-de-France,Val-de-Marne,94,55,Grands centres urbains,centres structurants d'équipements et de services
+91687,Viry-Châtillon,31045,6,5048.0,48.671,2.375,Île-de-France,Essonne,91,54,Grands centres urbains,centres structurants d'équipements et de services
+13117,Vitrolles,35532,37,967.0,43.448,5.25,Provence-Alpes-Côte d'Azur,Bouches-du-Rhône,13,111,Centres urbains intermédiaires,centres structurants d'équipements et de services
+94081,Vitry-sur-Seine,96205,12,8258.0,48.789,2.388,Île-de-France,Val-de-Marne,94,56,Grands centres urbains,centres structurants d'équipements et de services
+38563,Voiron,20891,22,950.0,45.363,5.592,Auvergne-Rhône-Alpes,Isère,38,454,Centres urbains intermédiaires,centres structurants d'équipements et de services
+78640,Vélizy-Villacoublay,22713,9,2535.0,48.783,2.191,Île-de-France,Yvelines,78,163,Grands centres urbains,centres structurants d'équipements et de services
+69259,Vénissieux,66363,15,4318.0,45.697,4.886,Auvergne-Rhône-Alpes,Rhône,69,195,Grands centres urbains,centres structurants d'équipements et de services
+59646,Wasquehal,20836,7,3020.0,50.669,3.131,Hauts-de-France,Nord,59,28,Grands centres urbains,centres structurants d'équipements et de services
+59650,Wattrelos,40836,14,3009.0,50.702,3.216,Hauts-de-France,Nord,59,27,Grands centres urbains,centres structurants d'équipements et de services
+91691,Yerres,28699,10,2887.0,48.717,2.488,Île-de-France,Essonne,91,76,Grands centres urbains,centres structurants d'équipements et de services
+38151,Échirolles,36849,8,4718.0,45.148,5.717,Auvergne-Rhône-Alpes,Isère,38,238,Grands centres urbains,centres structurants d'équipements et de services
+78208,Élancourt,26082,9,2814.0,48.768,1.949,Île-de-France,Yvelines,78,159,Grands centres urbains,centres structurants d'équipements et de services
+51230,Épernay,22001,23,964.0,49.044,3.959,Grand Est,Marne,51,165,Centres urbains intermédiaires,centres structurants d'équipements et de services
+88160,Épinal,32285,59,544.0,48.175,6.45,Grand Est,Vosges,88,401,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+93031,Épinay-sur-Seine,53489,5,11653.0,48.952,2.313,Île-de-France,Seine-Saint-Denis,93,38,Grands centres urbains,centres structurants d'équipements et de services
+91223,Étampes,26529,46,577.0,48.435,2.161,Île-de-France,Essonne,91,128,Centres urbains intermédiaires,centres structurants d'équipements et de services
+27229,Évreux,47289,26,1795.0,49.027,1.152,Normandie,Eure,27,111,Centres urbains intermédiaires,centres majeurs d'équipements et de services
+91228,Évry-Courcouronnes,66177,9,7740.0,48.624,2.429,Île-de-France,Essonne,91,71,Grands centres urbains,centres majeurs d'équipements et de services
