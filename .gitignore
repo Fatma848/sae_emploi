@@ -1,0 +1,6 @@
+data/DS_RP_EMPLOI_LR_COMP_2022_data.csv
+data/DS_RP_EMPLOI_LR_COMP_2022_metadata.csv
+data/pred-app-mef-dhup.csv
+data/pred-mai-mef-dhup.csv
+__pycache__/
+*.pyc
