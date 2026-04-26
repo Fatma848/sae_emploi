@@ -164,9 +164,26 @@ def build_acp_data():
 # ─────────────────────────────────────────────
 def tab_variance(pca, variables):
     st.subheader("Variance expliquée par composante")
-    st.caption(
-        "La variance expliquée indique quelle part de l'information totale est capturée par chaque axe."
-    )
+
+    st.markdown("""
+**Qu'est-ce que l'ACP ?**
+
+L'Analyse en Composantes Principales (ACP) est une méthode statistique qui permet de simplifier un grand nombre de variables tout en conservant l'essentiel de l'information.
+
+Dans cette application, plusieurs indicateurs décrivent les villes : population, densité, loyers, taux d'emploi, part de cadres, d'ouvriers et d'employés.
+L'ACP résume toutes ces informations en quelques axes principaux appelés composantes (PC1, PC2…).
+
+**A quoi servent les composantes ?**
+
+Chaque composante représente une combinaison des variables initiales :
+- **PC1** : c'est l'axe qui explique le plus de différences entre les villes. C'est le plus important.
+- **PC2** : c'est le deuxième axe le plus important, indépendant du premier.
+- Et ainsi de suite…
+
+Plus le pourcentage de variance expliquée est élevé, plus la composante est importante.
+Le graphique ci-dessous montre combien d'information chaque axe conserve, et la courbe rouge indique le cumul.
+    """)
+    st.divider()
 
     var_exp   = pca.explained_variance_ratio_ * 100
     var_cumul = np.cumsum(var_exp)
@@ -221,10 +238,18 @@ def tab_variance(pca, variables):
 # ─────────────────────────────────────────────
 def tab_cercle(pca, variables, labels):
     st.subheader("Cercle de corrélation — Variables")
-    st.caption(
-        "Montre comment chaque variable contribue aux axes. "
-        "Variables proches = corrélées. Variables opposées = anti-corrélées."
-    )
+    st.markdown("""
+Le cercle de corrélation montre comment chaque variable contribue aux axes de l'ACP.
+
+Chaque flèche représente une variable. Voici comment le lire :
+- Une **flèche longue** = la variable est bien représentée sur ces axes, elle contribue fortement.
+- Une **flèche courte** = la variable est peu représentée sur ce plan, elle est surtout expliquée par d'autres axes.
+- Deux **flèches dans la même direction** = ces deux variables évoluent ensemble (elles sont corrélées). Par exemple, loyer appartement et loyer maison ont tendance à être élevés dans les mêmes villes.
+- Deux **flèches opposées** = ces variables évoluent en sens inverse. Par exemple, % cadres et % ouvriers vont généralement dans des directions opposées.
+
+Utilise les menus ci-dessous pour changer les axes affichés.
+    """)
+    st.divider()
 
     ax_x = st.selectbox("Axe X :", [f"PC{i+1}" for i in range(pca.n_components_)],
                          index=0, key="cercle_x")
@@ -303,10 +328,19 @@ def tab_cercle(pca, variables, labels):
 # ─────────────────────────────────────────────
 def tab_individus(df_acp, pca, ville1, ville2):
     st.subheader("Graphe des individus — Les villes dans le plan factoriel")
-    st.caption(
-        "Chaque point = une ville. Les deux villes sélectionnées sont surlignées. "
-        "Villes proches = profils socio-économiques similaires."
-    )
+    st.markdown("""
+Sur ce graphique, **chaque point représente une ville**. Les 483 villes françaises de plus de 20 000 habitants sont placées dans le plan factoriel selon leur profil socio-économique.
+
+Comment le lire :
+- **Deux villes proches** sur le graphique ont des profils similaires : elles se ressemblent sur les variables analysées (loyers, emploi, densité…).
+- **Deux villes éloignées** sont très différentes l'une de l'autre.
+- Les **deux villes que tu compares** sont surlignées en couleur avec un symbole en diamant pour les repérer facilement.
+- Les villes situées **à droite** ont tendance à avoir des loyers élevés et beaucoup de cadres (car PC1 capture principalement ces variables).
+- Les villes situées **en haut ou en bas** se distinguent principalement sur l'axe PC2 (superficie, taux d'emploi).
+
+Utilise les menus ci-dessous pour changer les axes affichés.
+    """)
+    st.divider()
 
     ax_x = st.selectbox("Axe X :", [f"PC{i+1}" for i in range(pca.n_components_)],
                          index=0, key="ind_x")
@@ -419,10 +453,16 @@ def tab_individus(df_acp, pca, ville1, ville2):
 # ─────────────────────────────────────────────
 def tab_biplot(df_acp, pca, labels, ville1, ville2):
     st.subheader("Biplot — Individus + Variables superposés")
-    st.caption(
-        "Combine le graphe des individus et le cercle de corrélation "
-        "pour voir en un coup d'œil quelles villes ont quelles caractéristiques."
-    )
+    st.markdown("""
+Le biplot combine sur un seul graphique les deux vues précédentes : les villes (points) et les variables (flèches).
+
+Cela permet de voir directement **quelles villes sont associées à quelles caractéristiques** :
+- Une ville dans la **même direction qu'une flèche** = cette ville a une valeur élevée pour cette variable.
+- Une ville dans la **direction opposée à une flèche** = cette ville a une valeur basse pour cette variable.
+
+Par exemple, si les flèches "Loyer appt/m²" et "% Cadres" pointent vers la droite, et qu'une ville est aussi à droite, alors cette ville a probablement des loyers élevés et beaucoup de cadres.
+    """)
+    st.divider()
 
     ix, iy = 0, 1
     loadings = pca.components_
@@ -496,7 +536,17 @@ def tab_biplot(df_acp, pca, labels, ville1, ville2):
 # ─────────────────────────────────────────────
 def tab_profil(df_acp, pca, variables, labels, ville1, ville2, scaler):
     st.subheader("Profil détaillé des deux villes sélectionnées")
-    st.caption("Valeurs standardisées (z-score) de chaque variable par rapport à la moyenne nationale.")
+    st.markdown("""
+Ce graphique compare les deux villes choisies **variable par variable**, par rapport à la moyenne de toutes les villes françaises.
+
+Les valeurs affichées sont des **z-scores** (écarts à la moyenne) :
+- Un score **positif** = la ville est **au-dessus** de la moyenne nationale sur cette variable.
+- Un score **négatif** = la ville est **en dessous** de la moyenne nationale.
+- Un score **supérieur à +2 ou inférieur à -2** = la ville a une valeur exceptionnelle, très différente des autres villes.
+
+Par exemple, un z-score de +2 pour la densité signifie que la ville est beaucoup plus dense que la moyenne des 483 villes analysées.
+    """)
+    st.divider()
 
     r1 = df_acp[df_acp["nom_commune"] == ville1]
     r2 = df_acp[df_acp["nom_commune"] == ville2]

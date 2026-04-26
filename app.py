@@ -55,9 +55,9 @@ villes_dispo = sorted(df_communes["nom_commune"].dropna().unique().tolist())
 # SESSION STATE — Villes sélectionnées
 # ─────────────────────────────────────────────
 if "ville1" not in st.session_state:
-    st.session_state.ville1 = "Paris" if "Paris" in villes_dispo else villes_dispo[0]
+    st.session_state.ville1 = None
 if "ville2" not in st.session_state:
-    st.session_state.ville2 = "Marseille" if "Marseille" in villes_dispo else villes_dispo[1]
+    st.session_state.ville2 = None
 
 # ─────────────────────────────────────────────
 # SIDEBAR — Navigation + Sélecteur de villes
@@ -68,24 +68,21 @@ with st.sidebar:
 
     st.markdown("### 🔍 Choisir les villes")
 
-    idx1 = villes_dispo.index(st.session_state.ville1) if st.session_state.ville1 in villes_dispo else 0
-    idx2 = villes_dispo.index(st.session_state.ville2) if st.session_state.ville2 in villes_dispo else 1
+    options_avec_vide = ["— Choisir une ville —"] + villes_dispo
 
-    ville1 = st.selectbox(
-        "🏙️ Ville 1",
-        options=villes_dispo,
-        index=idx1,
-        key="select_v1",
-    )
-    ville2 = st.selectbox(
-        "🏙️ Ville 2",
-        options=villes_dispo,
-        index=idx2,
-        key="select_v2",
-    )
+    idx1 = (villes_dispo.index(st.session_state.ville1) + 1
+            if st.session_state.ville1 in villes_dispo else 0)
+    idx2 = (villes_dispo.index(st.session_state.ville2) + 1
+            if st.session_state.ville2 in villes_dispo else 0)
+
+    sel1 = st.selectbox("🏙️ Ville 1", options=options_avec_vide, index=idx1, key="select_v1")
+    sel2 = st.selectbox("🏙️ Ville 2", options=options_avec_vide, index=idx2, key="select_v2")
+
+    ville1 = sel1 if sel1 != "— Choisir une ville —" else None
+    ville2 = sel2 if sel2 != "— Choisir une ville —" else None
 
     # Validation
-    if ville1 == ville2:
+    if ville1 and ville2 and ville1 == ville2:
         st.warning("⚠️ Choisissez deux villes différentes.")
 
     # Sauvegarder dans session_state
@@ -112,6 +109,8 @@ with st.sidebar:
 # HELPER — Infos d'une ville
 # ─────────────────────────────────────────────
 def get_ville_info(nom):
+    if not nom:
+        return {}
     row = df_communes[df_communes["nom_commune"] == nom]
     if row.empty:
         return {}
@@ -124,15 +123,39 @@ v2_info = get_ville_info(ville2)
 # PAGES
 # ─────────────────────────────────────────────
 
+# ── GARDE FOU — villes non choisies ─────────
+def check_villes():
+    if not ville1 or not ville2:
+        st.warning("👈 Sélectionne deux villes dans le menu à gauche pour afficher cette page.")
+        return False
+    if ville1 == ville2:
+        st.warning("⚠️ Choisis deux villes différentes.")
+        return False
+    return True
+
 # ── ACCUEIL ──────────────────────────────────
 if page == "🏠 Accueil":
-    st.title("🏙️ Comparateur de villes françaises")
-    st.markdown(
-        "Bienvenue ! Sélectionne **deux villes** dans le menu à gauche "
-        "pour comparer leurs données sur plusieurs thématiques."
-    )
+        # Message de bienvenue
+    st.markdown("""
+<div style="background: linear-gradient(135deg, #1f77b4, #2ca02c); padding: 2rem 2.5rem; border-radius: 12px; color: white; margin-bottom: 1.5rem;">
+    <h2 style="color: white; margin: 0 0 0.5rem 0;">Bienvenue sur notre comparateur de villes françaises</h2>
+    <p style="margin: 0 0 1rem 0; font-size: 1.05rem; opacity: 0.95;">
+        Cette application vous permet de comparer deux villes françaises de plus de 20 000 habitants
+        sur plusieurs thématiques : données générales, emploi, logement, météo, culture et analyse statistique.
+        Sélectionnez vos deux villes dans le menu à gauche et explorez les différences !
+    </p>
+    <hr style="border-color: rgba(255,255,255,0.3); margin: 1rem 0;">
+    <p style="margin: 0; font-size: 0.9rem; opacity: 0.85;">
+        Application réalisée par <strong>Jana Laouchir</strong> et <strong>Fatma Ben Ltaief</strong> — SAE Outils Décisionnels
+    </p>
+</div>
+    """, unsafe_allow_html=True)
 
-    if ville1 != ville2:
+    if not ville1 or not ville2:
+        st.info("👈 Sélectionne deux villes dans le menu à gauche pour commencer la comparaison.")
+    elif ville1 == ville2:
+        st.warning("⚠️ Choisis deux villes différentes.")
+    else:
         st.markdown(f"### Comparaison en cours : **{ville1}** vs **{ville2}**")
 
         col1, col2 = st.columns(2)
@@ -153,21 +176,6 @@ if page == "🏠 Accueil":
 
         st.divider()
 
-    st.markdown("### 📂 Thématiques disponibles")
-    cols = st.columns(3)
-    thematiques = [
-        ("📊", "Données générales", "Population, densité, superficie"),
-        ("💼", "Emploi",           "Chômage, actifs, PCS"),
-        ("🏠", "Logement",         "Parc immobilier, prix, évolution"),
-        ("🌤️", "Météo",           "Climat annuel + prévisions 7j"),
-        ("🎭", "Culture",          "Lieux culturels, catégories"),
-        ("🗺️", "Carte",           "Localisation des deux villes"),
-    ]
-    for i, (emoji, titre, desc) in enumerate(thematiques):
-        with cols[i % 3]:
-            st.info(f"{emoji} **{titre}**\n\n{desc}")
-
-    st.divider()
     st.markdown("### 🗺️ Localisation des deux villes")
 
     if v1_info.get("latitude") and v2_info.get("latitude"):
@@ -206,30 +214,36 @@ if page == "🏠 Accueil":
 
 # ── DONNÉES GÉNÉRALES ────────────────────────
 elif page == "📊 Données générales":
-    from donnees_generales_module import show_donnees_generales
-    show_donnees_generales(ville1, ville2, v1_info, v2_info)
+    if check_villes():
+        from donnees_generales_module import show_donnees_generales
+        show_donnees_generales(ville1, ville2, v1_info, v2_info)
 
 # ── EMPLOI ───────────────────────────────────
 elif page == "💼 Emploi":
-    from emploi_module import show_emploi
-    show_emploi(ville1, ville2, v1_info, v2_info)
+    if check_villes():
+        from emploi_module import show_emploi
+        show_emploi(ville1, ville2, v1_info, v2_info)
 
 # ── LOGEMENT ─────────────────────────────────
 elif page == "🏠 Logement":
-    from logement_module import show_logement
-    show_logement(ville1, ville2, v1_info, v2_info)
+    if check_villes():
+        from logement_module import show_logement
+        show_logement(ville1, ville2, v1_info, v2_info)
 
 # ── MÉTÉO ─────────────────────────────────────
 elif page == "🌤️ Météo":
-    from meteo_module import show_meteo
-    show_meteo(ville1, ville2, v1_info, v2_info)
+    if check_villes():
+        from meteo_module import show_meteo
+        show_meteo(ville1, ville2, v1_info, v2_info)
 
 # ── CULTURE ──────────────────────────────────
 elif page == "🎭 Culture":
-    from culture_module import show_culture
-    show_culture(ville1, ville2, v1_info, v2_info)
+    if check_villes():
+        from culture_module import show_culture
+        show_culture(ville1, ville2, v1_info, v2_info)
 
 # ── ACP ───────────────────────────────────────
 elif page == "📐 ACP":
-    from acp_module import show_acp
-    show_acp(ville1, ville2, v1_info, v2_info)
+    if check_villes():
+        from acp_module import show_acp
+        show_acp(ville1, ville2, v1_info, v2_info)
