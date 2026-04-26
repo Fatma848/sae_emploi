@@ -112,7 +112,7 @@ def build_acp_data():
     # ── 4. Nettoyage ─────────────────────────
     VARIABLES = [
         "population", "densite", "superficie_km2",
-        "taux_chomage", "taux_emploi",
+        "taux_emploi",
         "pct_cadres", "pct_ouvriers", "pct_employes",
         "loyer_app_m2", "loyer_mai_m2",
     ]
@@ -122,7 +122,6 @@ def build_acp_data():
         "population":    "Population",
         "densite":       "Densité",
         "superficie_km2":"Superficie",
-        "taux_chomage":  "Taux chômage",
         "taux_emploi":   "Taux emploi",
         "pct_cadres":    "% Cadres",
         "pct_ouvriers":  "% Ouvriers",
@@ -570,6 +569,26 @@ def show_acp(ville1, ville2, v1_info, v2_info):
         "Variables : population, densité, loyers, emploi, PCS · "
         f"Toutes les villes +20 000 hab"
     )
+
+    with st.expander("Cest quoi une ACP ? Comprendre en 2 minutes"):
+        st.markdown("""
+Imagine que tu veux comparer 483 villes à la fois, mais que chaque ville est décrite par 9 chiffres différents : sa population, sa densité, ses loyers, le pourcentage de cadres, etc. C'est beaucoup trop d'informations pour les visualiser directement sur un graphique.
+
+L'ACP (Analyse en Composantes Principales) est une méthode mathématique qui résout ce problème. Elle prend toutes ces informations et les résume en 2 ou 3 grandes dimensions, appelées axes ou composantes, qui capturent le maximum d'information possible. C'est un peu comme si tu prenais une photo d'un objet en 3D : tu perds un peu d'information mais tu gardes l'essentiel.
+
+**Ce que tu peux lire dans les graphiques :**
+
+- **Variance expliquée** : indique combien d'information chaque axe conserve. Si PC1 explique 51%, ça veut dire que cet axe résume à lui seul plus de la moitié de toutes les différences entre les villes.
+
+- **Cercle de corrélation** : montre le rôle de chaque variable. Une flèche longue vers la droite = la variable tire fortement vers cet axe. Deux flèches dans la même direction = ces deux variables évoluent ensemble (elles sont corrélées).
+
+- **Graphe des individus** : chaque point est une ville. Deux villes proches sur le graphique ont des profils similaires. Deux villes éloignées sont très différentes. Les deux villes que tu compares sont surlignées en couleur.
+
+- **Biplot** : combine les deux graphiques précédents pour voir en un coup d'oeil quelles villes ressemblent à quelles caractéristiques.
+
+- **Profil des villes** : compare les deux villes choisies variable par variable, par rapport à la moyenne de toutes les villes françaises. Un score positif veut dire que la ville est au-dessus de la moyenne, un score négatif qu'elle est en dessous.
+        """)
+
 
     with st.spinner("Calcul de l'ACP en cours..."):
         result = build_acp_data()
