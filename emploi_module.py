@@ -143,8 +143,6 @@ def tab_kpis(ville1, ville2, s1, s2):
     kpis = [
         ("💼 Actifs totaux",      "actifs"),
         ("✅ Actifs occupés",     "occ"),
-        ("❌ Chômeurs",           "chom"),
-        ("📉 Taux de chômage",   "taux_chom"),
         ("📈 Taux d'emploi",     "taux_emploi"),
     ]
 
@@ -176,44 +174,7 @@ def tab_kpis(ville1, ville2, s1, s2):
         c3.metric("", render_val(val2, key), delta=render_delta(val1, val2, key),
                   delta_color="inverse" if "chom" in key else "normal")
 
-    st.divider()
 
-    # ── Jauges taux de chômage ──
-    tc1 = s1.get("taux_chom")
-    tc2 = s2.get("taux_chom")
-    if tc1 is not None and tc2 is not None:
-        st.markdown("#### 📊 Taux de chômage comparé")
-        fig_g = go.Figure()
-        for i, (nom, val, color) in enumerate([
-            (ville1, tc1, COLOR_V1),
-            (ville2, tc2, COLOR_V2),
-        ]):
-            fig_g.add_trace(go.Indicator(
-                mode="gauge+number",
-                value=round(val, 1),
-                title={"text": nom, "font": {"size": 13}},
-                number={"suffix": " %"},
-                gauge={
-                    "axis": {"range": [0, 25]},
-                    "bar": {"color": color},
-                    "steps": [
-                        {"range": [0, 8],   "color": "#d4edda"},
-                        {"range": [8, 15],  "color": "#fff3cd"},
-                        {"range": [15, 25], "color": "#f8d7da"},
-                    ],
-                    "threshold": {"line": {"color": "black", "width": 3}, "value": 10},
-                },
-                domain={"column": i, "row": 0},
-            ))
-        fig_g.update_layout(grid={"rows": 1, "columns": 2}, height=240, margin=dict(t=30, b=0))
-        st.plotly_chart(fig_g, use_container_width=True)
-
-        diff = tc2 - tc1
-        plus_touche = ville2 if diff > 0 else ville1
-        st.markdown(
-            f"> 👉 **{plus_touche}** présente un taux de chômage plus élevé "
-            f"({tc2:.1f}% vs {tc1:.1f}%), soit un écart de **{abs(diff):.1f} points**."
-        )
 
 
 # ─────────────────────────────────────────────
@@ -222,6 +183,25 @@ def tab_kpis(ville1, ville2, s1, s2):
 def tab_pcs(ville1, ville2, s1, s2):
     st.subheader("Répartition par catégorie socioprofessionnelle (PCS)")
     st.caption("Actifs occupés de 15-64 ans · Source : INSEE RP")
+
+    st.markdown("""
+La **catégorie socioprofessionnelle (PCS)** classe les personnes en emploi selon leur métier et leur statut.
+L'INSEE distingue 6 grandes catégories :
+
+| Catégorie | Qui sont-ils ? | Exemple |
+|---|---|---|
+| **Agriculteurs exploitants** | Personnes qui exploitent une ferme | Agriculteur, éleveur |
+| **Artisans, commerçants, chefs d'entreprise** | Indépendants qui dirigent une petite structure | Boulanger, plombier, gérant de PME |
+| **Cadres et professions intellectuelles supérieures** | Métiers très qualifiés, souvent bac+5 | Ingénieur, médecin, avocat, chercheur |
+| **Professions intermédiaires** | Entre cadres et employés, niveau bac+2/3 | Infirmier, technicien, comptable |
+| **Employés** | Postes d'exécution dans les services | Vendeur, secrétaire, agent administratif |
+| **Ouvriers** | Travail manuel dans l'industrie ou le bâtiment | Maçon, opérateur en usine, chauffeur |
+
+La répartition des PCS reflète la **structure économique** d'une ville :
+une ville avec beaucoup de cadres est souvent une ville tertiaire dynamique (sièges sociaux, universités),
+tandis qu'une forte proportion d'ouvriers traduit un tissu industriel marqué.
+    """)
+    st.divider()
 
     col_v1, col_v2 = st.columns(2)
 
@@ -326,27 +306,7 @@ def tab_evolution(ville1, ville2, df1, df2):
     )
     st.plotly_chart(fig, use_container_width=True)
 
-    # Évolution taux de chômage
-    st.markdown("#### 📉 Évolution du taux de chômage")
-    chom1 = get_chom_par_annee(df1)
-    chom2 = get_chom_par_annee(df2)
 
-    if not chom1.empty or not chom2.empty:
-        fig_c = go.Figure()
-        for nom, chom, color in [(ville1, chom1, COLOR_V1), (ville2, chom2, COLOR_V2)]:
-            if not chom.empty:
-                fig_c.add_trace(go.Scatter(
-                    x=chom["Année"], y=chom["Taux chômage (%)"],
-                    name=nom, mode="lines+markers",
-                    line=dict(color=color, width=2.5),
-                    marker=dict(size=8),
-                ))
-        fig_c.update_layout(
-            yaxis_title="Taux de chômage (%)",
-            height=360, legend_title="",
-            hovermode="x unified", margin=dict(t=20),
-        )
-        st.plotly_chart(fig_c, use_container_width=True)
 
     st.markdown("""
 > 👉 L'évolution temporelle permet de distinguer les **tendances structurelles** 
@@ -362,20 +322,9 @@ def tab_analyse(ville1, ville2, s1, s2):
 
     lignes = []
 
-    tc1 = s1.get("taux_chom")
-    tc2 = s2.get("taux_chom")
     te1 = s1.get("taux_emploi")
     te2 = s2.get("taux_emploi")
     a1  = s1.get("annee", "N/D")
-
-    if tc1 is not None and tc2 is not None:
-        diff = abs(tc2 - tc1)
-        plus = ville2 if tc2 > tc1 else ville1
-        moins = ville1 if tc2 > tc1 else ville2
-        lignes.append(
-            f"**📉 Taux de chômage** : {plus} ({max(tc1,tc2):.1f}%) est plus touché "
-            f"que {moins} ({min(tc1,tc2):.1f}%), soit **{diff:.1f} points d'écart**."
-        )
 
     if te1 is not None and te2 is not None:
         plus_emp = ville1 if te1 > te2 else ville2
